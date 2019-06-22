@@ -18,10 +18,11 @@ Enable the Google sheet API in your account.
 Follow Heroku deployment instructions on Heroku's website
 
 Example:
-1. Install Heroku (and git if required)
-2. Login by typing in command line: `heroku login`
+1. Install Heroku CLI (and git if required)
+2. Login in a local command line: `heroku login`
 3. Add Heroku as a remote to local git.
-    Example: `heroku git:remote -a fe-pyservice`
-4. Push: `git push heroku master`
+    Example: `heroku git:remote -a rhok-i4c-winter2019-fe-pyserv`
+    where `rhok-i4c-winter2019-fe-pyserv` is the name of the app on Heroku.
+4. Push the subfolder: `git subtree push --prefix packages/fe-pyservice heroku master`
 
 
