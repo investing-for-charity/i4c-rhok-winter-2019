@@ -16,7 +16,6 @@ def _to_float(x):
         return float(x)
 
 
-@lru_cache()
 def get_all_donors_summary():
     sheet = get_sheet_content("'All Donors Summary'")
     sheet['Sum Donation Amount'] = sheet['Sum Donation Amount'].apply(_to_float)
@@ -24,13 +23,11 @@ def get_all_donors_summary():
     return sheet
 
 
-@lru_cache()
 def get_charity_disbursement_summary():
     sheet = get_sheet_content("'Charity Disbursement Summary'")
     return sheet.set_index('Cause ID')
 
 
-@lru_cache()
 def get_latest_eofy_fund_balance():
     sheet = get_sheet_content("'Raw EOFY Balances'")
     sheet['Fund Balance'] = sheet['Fund Balance'].apply(_to_float)
