@@ -1,43 +1,12 @@
-from functools import lru_cache
 from flask import Flask
 from flask import jsonify
 from flask import request
 from flask_cors import CORS
 
-from googlesheets import get_sheet_content
+import googlesheets as gs
 
 app = Flask(__name__)
-cors = CORS(app, resources={r"/get/*": {"origins": "investing-for-charity.github.io"}})
-
-
-def _to_float(x):
-    if isinstance(x, str):
-        return float(x.replace(',', ''))
-    else:
-        return float(x)
-
-
-def get_all_donors_summary():
-    sheet = get_sheet_content("'All Donors Summary'")
-    sheet['Sum Donation Amount'] = sheet['Sum Donation Amount'].apply(_to_float)
-    sheet['Actual Disbursment'] = sheet['Actual Disbursment'].apply(_to_float)
-    return sheet
-
-def get_donors_password():
-    sheet = get_sheet_content("'DonorPW'")
-    sheet['Sum Donation Amount'] = sheet['Sum Donation Amount'].apply(_to_float)
-    sheet['Actual Disbursment'] = sheet['Actual Disbursment'].apply(_to_float)
-    return sheet
-
-def get_charity_disbursement_summary():
-    sheet = get_sheet_content("'Charity Disbursement Summary'")
-    return sheet.set_index('Cause ID')
-
-
-def get_latest_eofy_fund_balance():
-    sheet = get_sheet_content("'Raw EOFY Balances'")
-    sheet['Fund Balance'] = sheet['Fund Balance'].apply(_to_float)
-    return sheet.iloc[-1, :]
+cors = CORS(app, resources={r"/get/*": {"origins": "https://investing-for-charity.github.io"}})
 
 
 @app.route('/')
@@ -47,21 +16,23 @@ def hello_world():
 
 @app.route('/get', methods=['POST'])
 def show_user_profile():
-    email_address = request.form.get('email')
-    password = request.form.get('password')
+    json_request = request.get_json(force=True)
+    email_address = json_request.get('email')
+    password = json_request.get('password')
 
     # show the user profile for that user
-    all_donors = get_all_donors_summary()
-    charities = get_charity_disbursement_summary()
-    eofy_fund = get_latest_eofy_fund_balance()
-    password_list = get_donors_password()
+    all_donors = gs.get_all_donors_summary()
+    charities = gs.get_charity_disbursement_summary()
+    eofy_fund = gs.get_latest_eofy_fund_balance()
+    password_list = gs.get_donors_password()
 
     # check passwords
-    password = password_list[(password_list.Email.str.lower() == email_address.lower()) & (password_list.Password == password)]
+    password = password_list[
+        (password_list.Email.str.lower() == email_address.lower()) & (password_list.Password == password)]
     if password.shape[0] == 0:
         return jsonify({'error': 'invalid username or password'})
 
-    # check if email exists
+    # get person details
     person = all_donors[all_donors.Email.str.lower() == email_address.lower()]
     person = person.iloc[-1, :]
 
@@ -72,14 +43,14 @@ def show_user_profile():
                'donation_sum': person['Sum Donation Amount'],
                'fund_value': fund_value,
                'actual_distribution': person['Actual Disbursment'],
-               'annual_distribution_percent': _to_float(person['Annual distribution %'].strip('%')),
+               'annual_distribution_percent': float(person['Annual distribution %'].strip('%')),
                'charities': [],
                }
 
     for charity, charity_info in charities.iterrows():
         message['charities'].append({'charity_name': charity_info['Charity Name'],
                                      'cause': charity_info['Cause Name'],
-                                     'percent':  _to_float(person[charity + ' allocation'].strip('%'))})
+                                     'percent': float(person[charity + ' allocation'].strip('%'))})
 
     return jsonify(message)
 
