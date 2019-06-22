@@ -180,65 +180,62 @@ class ContributionForm extends Component {
             </div>
             <div className="contribution-results">
               <div id="achieve-charity">
-                <h3>
-                  Through our research <br /> we have determined the most
-                  effective charity to be
-                </h3>
+                <h3>we have determined the most effective charity to be</h3>
                 <h1>{this.state.selectedCharityData.charityName}</h1>
               </div>
             </div>
-            <div className="form-group">
-              <h1>
-                <label htmlFor="fund-total-display" className="input-label">
-                  Your Starting Balance
-                </label>
-              </h1>
-              <div className="input-group" id="fund-total">
-                <FontAwesomeIcon icon={faDollarSign} />
-                <input
-                  className="form-input numbersonly"
-                  id="fund-total-display"
-                  min="500"
-                  defaultValue={numberWithCommas(fundTotal)}
-                  onChange={x => this.setState({ fundTotal: x.target.value })}
+            <div className="contribution">
+              <div className="form-group">
+                <h1>
+                  <label htmlFor="fund-total-display" className="input-label">
+                    Your Starting Balance
+                  </label>
+                </h1>
+                <div className="input-group" id="fund-total">
+                  <FontAwesomeIcon icon={faDollarSign} />
+                  <input
+                    className="form-input numbersonly"
+                    id="fund-total-display"
+                    min="500"
+                    defaultValue={numberWithCommas(fundTotal)}
+                    onChange={x => this.setState({ fundTotal: x.target.value })}
+                  />
+                </div>
+              </div>
+              <div className="form-group">
+                <h1>Your Contribution is</h1>
+                <h2 className="form-input-group">
+                  <FontAwesomeIcon icon={faDollarSign} />
+                  <span id="contribution-result">
+                    {numberWithCommas(contributionAmount)}
+                  </span>
+                </h2>
+              </div>
+              <div className="form-group">
+                <h1>
+                  <label
+                    id="contribution-percentage-label"
+                    className="input-label"
+                  >
+                    Annual Distribution Percentage
+                  </label>
+                </h1>
+                <InputRange
+                  id="contribution-percentage-input"
+                  aria-labelledby="contribution-percentage-label"
+                  className="form-input-group"
+                  formatLabel={value => value.toFixed(1) + "%"}
+                  maxValue={25}
+                  minValue={4}
+                  value={contributionPercentage}
+                  step={0.1}
+                  onChange={value =>
+                    this.setState({ contributionPercentage: value })
+                  }
                 />
               </div>
             </div>
-
-            <div className="form-group">
-              <h1>
-                <label
-                  id="contribution-percentage-label"
-                  className="input-label"
-                >
-                  Annual Distribution Percentage
-                </label>
-              </h1>
-              <InputRange
-                id="contribution-percentage-input"
-                aria-labelledby="contribution-percentage-label"
-                formatLabel={value => value.toFixed(1) + "%"}
-                maxValue={25}
-                minValue={4}
-                value={contributionPercentage}
-                step={0.1}
-                onChange={value =>
-                  this.setState({ contributionPercentage: value })
-                }
-              />
-            </div>
-          </div>
-          <div className="contribution-results">
-            <div className="form-group">
-              <h1>Your Contribution is</h1>
-              <span>change your annual distribution percentage to adjust</span>
-              <h2>
-                <FontAwesomeIcon icon={faDollarSign} />
-                <span id="contribution-result">
-                  {numberWithCommas(contributionAmount)}
-                </span>
-              </h2>
-            </div>
+            <span>change your annual distribution percentage to adjust</span>
           </div>
         </section>
         <section className="simulator">
@@ -249,19 +246,19 @@ class ContributionForm extends Component {
           </div>
           <div id="achieve-impact-group">
             <div className="impact-group" id="achieve-1">
-              <h1>
+              <h1 id="achieve-1-value">
                 {calculateImpact(thousandAchieves.achieve1.achieveAmount)}
               </h1>
               <h3> {thousandAchieves.achieve1.achieveName}</h3>
             </div>
             <div className="impact-group" id="achieve-2">
-              <h1>
+              <h1 id="achieve-2-value">
                 {calculateImpact(thousandAchieves.achieve2.achieveAmount)}
               </h1>
               <h3> {thousandAchieves.achieve2.achieveName}</h3>
             </div>
             <div className="impact-group" id="achieve-3">
-              <h1>
+              <h1 id="achieve-3-value">
                 {calculateImpact(thousandAchieves.achieve3.achieveAmount)}
               </h1>
               <h3> {thousandAchieves.achieve3.achieveName}</h3>

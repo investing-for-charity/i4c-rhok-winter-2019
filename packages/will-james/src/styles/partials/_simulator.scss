@@ -8,12 +8,11 @@
   #achieve-impact-group {
     display: flex;
     flex-flow: row;
-    width: 50%;
+    width: 80%;
     justify-content: space-between;
 
     .impact-group {
       display: grid;
-      grid-template-rows: 4rem 4rem;
       width: 30%;
 
       h1 {
@@ -36,4 +35,41 @@
     padding: 0 0.4rem;
     margin: 0 0 3rem;
   }
+}
+
+.contribution {
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 2rem;
+  .form-group {
+    display: grid;
+    grid-template-rows: 8rem 4rem;
+    width: 30%;
+
+    .form-input-group {
+      margin: 0;
+      padding: 0.75rem;
+      display: block;
+      text-align: center;
+      font-size: 1.5rem;
+      svg {
+        padding-right: 1rem;
+      }
+      span {
+        font-family: "Roboto Mono", monospace;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+.input-range__label-container {
+  color: #3d3d3d;
+  font-size: 1rem;
+  font-family: "Roboto Mono", monospace;
+  font-weight: normal;
+}
+
+.input-range {
+  margin: auto;
 }
