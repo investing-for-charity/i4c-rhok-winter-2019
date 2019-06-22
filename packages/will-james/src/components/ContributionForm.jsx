@@ -4,10 +4,20 @@ import { faDollarSign } from "@fortawesome/free-solid-svg-icons";
 import InputRange from "react-input-range";
 import causeData from "../data/causeInfo.json";
 
+import underPrivilegedYouthLogo from '../assets/underprivileged-youth.png';
+import refugeesInAustraliaLogo from '../assets/refugees-in-australia.png';
+import childSlaveryLogo from '../assets/child-slavery.png';
+import mentalHealthLogo from '../assets/mental-health.png';
+import womanDomesticViolenceLogo from '../assets/women-domestic-violence.png';
+import globalPovertyLogo from '../assets/global-poverty.png';
+import youthAtRiskLogo from '../assets/youth-at-risk.png';
+import socialEnterpriseLogo from '../assets/social-enterprise.png';
+
 class ContributionForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      logo: underPrivilegedYouthLogo,
       fundTotal: "",
       causeSupported: "",
       contributionPercentage: "",
@@ -92,37 +102,43 @@ class ContributionForm extends Component {
         : "";
     }
 
+    let logo = underPrivilegedYouthLogo;
+
     function changeCharityInfo(causeName) {
       var data = causeData.causes;
       simulator.setState({ causeSupported: causeName });
 
       switch (causeName) {
         case data.underPrivilegedYouth.causeName:
-          simulator.setState({
-            selectedCharityData: data.underPrivilegedYouth
-          });
+          simulator.setState({ logo: underPrivilegedYouthLogo});
+          simulator.setState({ selectedCharityData: data.underPrivilegedYouth});
           break;
         case data.refugeesInAustralia.causeName:
+          simulator.setState({ logo: refugeesInAustraliaLogo});
           simulator.setState({ selectedCharityData: data.refugeesInAustralia });
           break;
         case data.childSlavery.causeName:
+          simulator.setState({ logo: childSlaveryLogo});
           simulator.setState({ selectedCharityData: data.childSlavery });
           break;
         case data.womanDomesticViolence.causeName:
-          simulator.setState({
-            selectedCharityData: data.womanDomesticViolence
-          });
+          simulator.setState({ logo: womanDomesticViolenceLogo});
+          simulator.setState({ selectedCharityData: data.womanDomesticViolence});
           break;
         case data.globalPoverty.causeName:
+          simulator.setState({ logo: globalPovertyLogo}); 
           simulator.setState({ selectedCharityData: data.globalPoverty });
           break;
         case data.youthAtRisk.causeName:
+          simulator.setState({ logo: youthAtRiskLogo});
           simulator.setState({ selectedCharityData: data.youthAtRisk });
           break;
         case data.socialEnterprise.causeName:
+          simulator.setState({ logo: socialEnterpriseLogo });
           simulator.setState({ selectedCharityData: data.socialEnterprise });
           break;
         case data.mentalHealth.causeName:
+          simulator.setState({ logo: mentalHealthLogo });
           simulator.setState({ selectedCharityData: data.mentalHealth });
           break;
       }
@@ -135,7 +151,7 @@ class ContributionForm extends Component {
             <div className="form-group">
               <h1>
                 <label htmlFor="contribution-cause">
-                  You have decided to support
+                  Select Cause:
                 </label>
               </h1>
               <select
@@ -181,12 +197,15 @@ class ContributionForm extends Component {
             <div className="contribution-results">
               <div id="achieve-charity">
                 <h3>
-                  Through our research <br /> we have determined the most
-                  effective charity to be
+                  In association with
                 </h3>
                 <h1>{this.state.selectedCharityData.charityName}</h1>
               </div>
             </div>
+            <img class="cause-logo" 
+                 src={this.state.logo} 
+                 alt="cause-logo">
+            </img>
             <div className="form-group">
               <h1>
                 <label htmlFor="fund-total-display" className="input-label">
