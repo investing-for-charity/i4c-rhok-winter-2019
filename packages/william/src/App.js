@@ -14,39 +14,40 @@ export class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      donationValue: '500',
-      changeFocus: false,
+      donationValue: '',
+      causeFocus: false,
       impactFocus: false,
+      cause: ''
     };
 
-    this.handleChangeDonation = this.handleChangeDonation.bind(this);
-    this.handleChangeCause = this.handleChangeCause.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleChangeDonation = this.handleChangeDonation.bind(this);
+    // this.handleChangeCause = this.handleChangeCause.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChangeDonation(event) {
+  handleChangeDonation = (event) => {
     this.setState({
       donationValue: event.target.value,
-      changeFocus: true,
+      causeFocus: true,
     });
   }
 
-  handleChangeCause(event) {
+  handleChangeCause = () => {
     this.setState({
-      cause: event.target.value,
+      cause: true,
       impactFocus: true,
     });
   }
 
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
+  handleSubmit = (event) => {
+    alert(`A donation of ${this.state.donationValue} was submitted to ${this.state.cause}`);
     event.preventDefault();
   }
 
   render() {
     return (
       <div className="c-app">
-        <header className="g-page-padding c-header">
+        {/* <header className="g-page-padding c-header">
           <div className="g-inner-wrapper g-inner-wrapper--100 g-inner-wrapper--default">
             <div className="g-flex__container g-flex__container--justify-space-between">
               <div className="g-flex__item"><span>Logo</span> <span><h1>I4C</h1></span></div>
@@ -56,24 +57,49 @@ export class App extends Component {
               </ul>
             </div>
           </div>
-        </header>
+        </header> */}
 
         <main>
           <div id="calculator" className="c-calculator">
             <div className="g-inner-wrapper g-inner-wrapper--100 g-inner-wrapper--default">
               <h2 className="u-visually-hidden">Impact Calculator</h2>
               <form onSubmit={this.handleSubmit}>
-                <div className="g-flex__container">
-                  <div className="g-flex__item g-flex__container g-flex__container--column">
-                    <div className="g-flex__item">
-                      <Donation value={this.state.donationValue} handleChange={this.handleChangeDonation} />
-                    </div>
-                    <div className="g-flex__item">
-                      <Cause focus={this.state.changeFocus} handleChange={this.handleChangeCause} />
+                <div className="g-grid__container--calc">
+                  <div className="g-grid__item--content-left">
+                    <div className="g-flex__container g-flex__container--column c-calculator__donations-and-causes">
+                      <div className="g-flex__item">
+                        <Donation focus={this.state.causeFocus} value={this.state.donationValue} handleChange={this.handleChangeDonation} />
+                      </div>
+                      {
+                        this.state.impactFocus &&
+                        <div className="g-flex__item">
+                          <Cause charitySelected={this.state.cause} focus={this.state.causeFocus} handleChange={this.handleChangeCause} />
+                        </div>
+                      }
                     </div>
                   </div>
-                  <div className="g-flex__item">
-                    <Impact focus={this.state.impactFocus} impact={this.state.impact} />
+                  <div className="g-grid__item--content-right">
+                    {
+                      !this.state.causeFocus && !this.state.impactFocus &&
+                      <div className="g-flex__item g-flex__container g-flex__container--column c-calculator__intro">
+                        <h3 className="g-flex__item">Calculate the impact your donation will make</h3>
+                        <p className="g-flex__item">Use the calculator to help you decide which charities you would like to support and exactly how your contribution will impact lives.</p>
+                      </div>
+                    }
+                    {
+                      this.state.causeFocus && this.state.impactFocus === false &&
+                      <div className="g-flex__item g-flex__container g-flex__container--column c-calculator__causes">
+                        <div className="g-flex__item">
+                          <Cause charitySelected={this.state.cause} focus={this.state.causeFocus} handleChange={this.handleChangeCause} />
+                        </div>
+                      </div>
+                    }
+                    {
+                      this.state.impactFocus &&
+                      <div className="g-flex__item g-flex__container g-flex__container--column c-calculator__causes">
+                        <Impact focus={this.state.impactFocus} impact={this.state.impact} />
+                      </div>
+                    }
                   </div>
                 </div>
                 <input type="submit" value="Make Donation" />
