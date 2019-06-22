@@ -12,7 +12,11 @@ const moneyCss = css`
   font-size: 32px;
 `;
 
-export default ({ dashboardData }: Props) => {
+const fmtNum = (n: number) => n.toLocaleString(undefined, { maximumFractionDigits: 2 });
+
+export default ({
+  dashboardData: { first_name, donation_sum, annual_distribution_percent, charities, fund_value },
+}: Props) => {
   return (
     <div>
       <h1
@@ -21,7 +25,7 @@ export default ({ dashboardData }: Props) => {
           color: #505f79;
         `}
       >
-        Welcome {dashboardData.first_name}!
+        Welcome {first_name}!
       </h1>
       <dl
         css={css`
@@ -33,11 +37,15 @@ export default ({ dashboardData }: Props) => {
       >
         <dt>You have donated</dt>
         <dd>
-          <span css={moneyCss}>${dashboardData.donation_sum.toLocaleString()}</span>
+          <span css={moneyCss}>${fmtNum(donation_sum)}</span>
         </dd>
         <dt>Your fund value is</dt>
         <dd>
-          <span css={moneyCss}>${dashboardData.fund_value.toLocaleString()}</span>
+          <span css={moneyCss}>${fmtNum(fund_value)}</span>
+        </dd>
+        <dt>Your annual distribution is</dt>
+        <dd>
+          <span css={moneyCss}>${fmtNum(annual_distribution_percent)}%</span>
         </dd>
       </dl>
       Each year, you distribute:
@@ -55,13 +63,18 @@ export default ({ dashboardData }: Props) => {
           <tr>
             <td>Cause</td>
             <td>Distribution</td>
+            <td>Total amount</td>
           </tr>
         </thead>
         <tbody>
-          {Object.entries(dashboardData.charities).map(([cause, distribution]) => (
+          {charities.map(({ cause, charity_name, percent }) => (
             <tr>
-              <td>{cause}</td>
-              <td css={moneyCss}>{distribution}</td>
+              <td>
+                {charity_name}
+                <small>{cause}</small>
+              </td>
+              <td css={moneyCss}>{fmtNum(percent)}%</td>
+              <td css={moneyCss}>{fmtNum((annual_distribution_percent / 100) * fund_value * (percent / 100))}%</td>
             </tr>
           ))}
         </tbody>

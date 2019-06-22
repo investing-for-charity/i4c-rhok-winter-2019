@@ -137,9 +137,9 @@ body {
       -ms-flex-flow: row;
           flex-flow: row;
   width: 50%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .simulator #achieve-impact-group .impact-group {

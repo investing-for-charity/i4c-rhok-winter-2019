@@ -182,10 +182,8 @@ class ContributionForm extends Component {
               <div id="achieve-charity">
                 <h3>
                   Through our research <br /> we have determined the most
-                  effective charity for
+                  effective charity to be
                 </h3>
-                <h1>{this.state.causeSupported}</h1>
-                <h3>to be</h3>
                 <h1>{this.state.selectedCharityData.charityName}</h1>
               </div>
             </div>
