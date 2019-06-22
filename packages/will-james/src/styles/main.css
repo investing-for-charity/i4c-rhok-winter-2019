@@ -79,6 +79,10 @@ body {
   cursor: pointer;
 }
 
+.cause-logo {
+  height: 150px;
+}
+
 .contribution-results {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -58,3 +58,34 @@ def get_sheet_content(sheetname_range, set_column_names=True):
         df = df.iloc[1:, :]
 
     return df
+
+
+########################################################################################################################
+def _to_float(x):
+    if isinstance(x, str):
+        return float(x.replace(',', ''))
+    else:
+        return float(x)
+
+
+def get_all_donors_summary():
+    sheet = get_sheet_content("'All Donors Summary'")
+    sheet['Sum Donation Amount'] = sheet['Sum Donation Amount'].apply(_to_float)
+    sheet['Actual Disbursment'] = sheet['Actual Disbursment'].apply(_to_float)
+    return sheet
+
+
+def get_donors_password():
+    sheet = get_sheet_content("'DonorPW'")
+    return sheet
+
+
+def get_charity_disbursement_summary():
+    sheet = get_sheet_content("'Charity Disbursement Summary'")
+    return sheet.set_index('Cause ID')
+
+
+def get_latest_eofy_fund_balance():
+    sheet = get_sheet_content("'Raw EOFY Balances'")
+    sheet['Fund Balance'] = sheet['Fund Balance'].apply(_to_float)
+    return sheet.iloc[-1, :]

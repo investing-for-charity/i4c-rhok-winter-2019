@@ -41,6 +41,14 @@ export default () => {
     []
   );
 
+  const onLogOut = useCallback(() => {
+    dispatch({
+      email: '',
+      step: 'LOGIN',
+      dashboardData: undefined,
+    });
+  }, []);
+
   let component: React.ReactNode;
   switch (state.step) {
     case 'LOGIN': {
@@ -48,7 +56,7 @@ export default () => {
       break;
     }
     case 'DASHBOARD': {
-      component = state.dashboardData && <DashboardContent dashboardData={state.dashboardData} />;
+      component = state.dashboardData && <DashboardContent dashboardData={state.dashboardData} onLogOut={onLogOut}/>;
       break;
     }
   }
@@ -61,22 +69,7 @@ export default () => {
         background: #57d9a3;
       `}
     >
-      <div
-        css={css`
-          width: 70%;
-          max-width: 700px;
-          background: #fff;
-          border-radius: 3px;
-          padding: 32px;
-          margin: 32px auto;
-
-          @media (min-width: 420px) {
-            width: 50%;
-          }
-        `}
-      >
-        {component}
-      </div>
+      {component}
     </div>
   );
 };

@@ -10,3 +10,15 @@
   white-space: nowrap;
   width: 1px;
 }
+
+.g-padding-left--1 {
+  padding-left: 1em;
+}
+
+.g-padding-left--2 {
+  padding-left: 2em;
+}
+
+.g-padding-top--1 {
+  padding-top: 1em;
+}

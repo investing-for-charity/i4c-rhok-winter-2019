@@ -1,16 +1,16 @@
 /** @jsx jsx */
-import { Fragment } from 'react';
 import { css, jsx } from '@emotion/core';
 import Form, { Field, FormFooter } from '@atlaskit/form';
 import Button from '@atlaskit/button';
 import TextField from '@atlaskit/textfield';
+import { cardCss } from '../Card';
 
 type Props = {
   onSubmit: (formData: { email: string }, _form: any, callback: (errors?: Object) => void) => void;
 };
 
 export default ({ onSubmit }: Props) => (
-  <Fragment>
+  <div css={cardCss}>
     <h1
       css={css`
         font-size: 18px;
@@ -33,5 +33,5 @@ export default ({ onSubmit }: Props) => (
         </form>
       )}
     </Form>
-  </Fragment>
+  </div>
 );
