@@ -41,6 +41,14 @@ export default () => {
     []
   );
 
+  const onLogOut = useCallback(() => {
+    dispatch({
+      email: '',
+      step: 'LOGIN',
+      dashboardData: undefined,
+    });
+  }, []);
+
   let component: React.ReactNode;
   switch (state.step) {
     case 'LOGIN': {
@@ -48,7 +56,7 @@ export default () => {
       break;
     }
     case 'DASHBOARD': {
-      component = state.dashboardData && <DashboardContent dashboardData={state.dashboardData} />;
+      component = state.dashboardData && <DashboardContent dashboardData={state.dashboardData} onLogOut={onLogOut}/>;
       break;
     }
   }

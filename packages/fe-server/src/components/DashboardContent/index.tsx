@@ -2,9 +2,11 @@
 import { css, jsx } from '@emotion/core';
 import { DashboardData } from '../../api/types';
 import { cardCss } from '../Card';
+import { Button } from '@atlaskit/button/components/Button';
 
 type Props = {
   dashboardData: DashboardData;
+  onLogOut: () => void;
 };
 
 const moneyCss = css`
@@ -28,6 +30,7 @@ const fmtNum = (n: number) => n.toLocaleString(undefined, { maximumFractionDigit
 
 export default ({
   dashboardData: { first_name, donation_sum, annual_distribution_percent, charities, fund_value },
+  onLogOut,
 }: Props) => {
   return (
     <div
@@ -41,6 +44,19 @@ export default ({
         }
       `}
     >
+      <div
+        css={css`
+          position: fixed;
+          right: 24px;
+          padding: 8px;
+
+          > button {
+            background: #fff;
+          }
+        `}
+      >
+        <Button onClick={onLogOut}>Log out</Button>
+      </div>
       <div
         css={css`
           ${sectionCss}
@@ -103,7 +119,7 @@ export default ({
           </thead>
           <tbody>
             {charities.map(({ cause, charity_name, percent }) => (
-              <tr>
+              <tr key={cause}>
                 <td>
                   {charity_name}
                   <br />
