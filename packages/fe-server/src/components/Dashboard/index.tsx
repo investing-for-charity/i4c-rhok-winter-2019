@@ -6,6 +6,7 @@ import Login from '../Login';
 import DashboardContent from '../DashboardContent';
 import { getDashboardData } from '../../api';
 import { DashboardData } from '../../api/types';
+import { cardCss } from '../Card';
 
 type Step = 'LOGIN' | 'DASHBOARD';
 type State = {
@@ -61,22 +62,7 @@ export default () => {
         background: #57d9a3;
       `}
     >
-      <div
-        css={css`
-          width: 70%;
-          max-width: 700px;
-          background: #fff;
-          border-radius: 3px;
-          padding: 32px;
-          margin: 32px auto;
-
-          @media (min-width: 420px) {
-            width: 50%;
-          }
-        `}
-      >
-        {component}
-      </div>
+      {component}
     </div>
   );
 };
