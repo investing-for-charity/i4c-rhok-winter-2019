@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/i4c-rhok-winter-2019/precache-manifest.3ee8b971c10d8fcfd72bb70d2d9a5335.js"
+  "/i4c-rhok-winter-2019/precache-manifest.5e339e1f5b9a09eac79f2279a9f48f82.js"
 );
 
 self.addEventListener('message', (event) => {
