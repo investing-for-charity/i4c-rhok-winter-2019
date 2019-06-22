@@ -15,9 +15,9 @@
         "achieve3": {
           "achieveName": "Crisis Interventions",
           "achieveAmount": 21
-        },
-        "postTxt": ""
-      }
+        }
+      },
+      "postTxt": ""
     },
     "refugeesInAustralia": {
       "causeName": "Refugees in Australia",
@@ -34,9 +34,9 @@
         "achieve3": {
           "achieveName": "Dollars in Financial Support",
           "achieveAmount": 93
-        },
-        "postTxt": "As well as access to English Classes, Employement Training, and a Local Mentor"
-      }
+        }
+      },
+      "postTxt": "As well as access to English Classes, Employement Training, and a Local Mentor"
     },
     "childSlavery": {
       "causeName": "Child Slavery",
@@ -53,9 +53,9 @@
         "achieve3": {
           "achieveName": "Social support to aid integration",
           "achieveAmount": null
-        },
-        "postTxt": "As well as Medical and Psychological Care"
-      }
+        }
+      },
+      "postTxt": "As well as Medical and Psychological Care"
     },
     "womanDomesticViolence": {
       "causeName": "Woman and Domestic Violence",
@@ -72,9 +72,9 @@
         "achieve3": {
           "achieveName": "",
           "achieveAmount": null
-        },
-        "postTxt": ""
-      }
+        }
+      },
+      "postTxt": ""
     },
     "globalPoverty": {
       "causeName": "Global Poverty",
@@ -91,9 +91,9 @@
         "achieve3": {
           "achieveName": "",
           "achieveAmount": null
-        },
-        "postTxt": "As well as addressing the UN's global goals relating to Malaria elimination"
-      }
+        }
+      },
+      "postTxt": "As well as addressing the UN's global goals relating to Malaria elimination"
     },
     "youthAtRisk": {
       "causeName": "Youth at Risk",
@@ -110,9 +110,9 @@
         "achieve3": {
           "achieveName": "Advice to get back on track",
           "achieveAmount": null
-        },
-        "postTxt": ""
-      }
+        }
+      },
+      "postTxt": ""
     },
     "socialEnterprise": {
       "causeName": "Social Enterprise",
@@ -129,9 +129,9 @@
         "achieve3": {
           "achieveName": "One-on-one English tuition and counselling services",
           "achieveAmount": null
-        },
-        "postTxt": "As well as support in obtaining full time employment after becoming qualified"
-      }
+        }
+      },
+      "postTxt": "As well as support in obtaining full time employment after becoming qualified"
     },
     "mentalHealth": {
       "causeName": "Mental Health",
@@ -148,9 +148,9 @@
         "achieve3": {
           "achieveName": "Health service professionals educated on perinatal anxiety and depression",
           "achieveAmount": 1.2
-        },
-        "postTxt": ""
-      }
+        }
+      },
+      "postTxt": ""
     }
   }
 }

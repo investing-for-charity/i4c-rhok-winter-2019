@@ -8,19 +8,15 @@ const SausageLink = ({cause, handleCauseClick}) => {
 
     return (
         <li>
-                <span
+            <span
                 onClick={handleClick}
-                >
+            >
                 {cause.causeName}
-                </span>
-            </li>
+            </span>
+        </li>
     );
 }
 class Carousel extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  };
-    }
 
     render() {
         const {causes} = this.props
@@ -29,7 +25,7 @@ class Carousel extends Component {
                 <ul>
                     {Object.values(causes).map(cause => {
                         return(
-                            <SausageLink
+                            <SausageLink key={cause.causeName}
                                 cause={cause}
                                 handleCauseClick={this.props.handleCauseClick}
                             />

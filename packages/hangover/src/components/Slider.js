@@ -8,14 +8,25 @@ class Slider extends Component {
     }
 
     render() {
+        const {distribution} = this.props
         return (
-            <input 
-                type="range"
-                onChange={this.handleChange}
-                value={this.props.distribution}
-                max-value={100}
-            />
-
+            <div className="slider">
+                <label 
+                    for="slider" 
+                    style={{
+                        marginLeft: `${distribution > 12 ? 330/100 * distribution : 24 + Number(distribution)}px`
+                    }}
+                >
+                    <span>{this.props.distribution}%</span>
+                </label>
+                <input 
+                    type="range"
+                    onChange={this.handleChange}
+                    value={this.props.distribution}
+                    max-value={100}
+                    min={4}
+                />
+            </div>
          );
     }
 }
