@@ -1,5 +1,6 @@
 $unitBase: 12px;
 $unitLine: 2px;
+$unitType: 16px;
 
 $colorBase: #0F1B4D;
 $colorAction: #37D06F;
@@ -13,7 +14,24 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: mix($colorSecondary, $colorWhite, 20%)
+  font-size: $unitType;
+  color: $colorBase;
+  line-height: 1.2;
+  background-color: mix($colorAction, $colorWhite, 20%);
+}
+h1, h2, h3 {
+    margin-top: $unitBase * 3;
+    margin-bottom: $unitBase;
+}
+
+h1 {
+    font-size: $unitType * 4;
+}
+h2 {
+    font-size: $unitType * 3;
+}
+h3 {
+    font-size: $unitType * 2;
 }
 
 code {
@@ -21,13 +39,23 @@ code {
     monospace;
 }
 
-input:not([type="submit"]) {
-    border: $unitLine solid mix($colorBase, $colorWhite, 20%);
-    padding: $unitBase / 2 $unitBase;
-    border-radius: $unitBase * 10;
-    &:focus {
-        border-color: $colorAction;
-        outline: none;
+input {
+    &:not([type="submit"]) {
+        box-sizing: border-box;
+        border: $unitLine solid mix($colorBase, $colorWhite, 20%);
+        padding: $unitBase $unitBase * 1.5;
+        border-radius: $unitBase * 10;
+        font-size: $unitType;
+        width: 100%;
+        max-width: $unitBase * 30;
+        &:focus {
+            border-color: $colorAction;
+            outline: none;
+        }
+    }
+    &[type="range"] {
+        appearance: none;
+        background: $colorAction;
     }
 }
 
@@ -35,7 +63,38 @@ input:not([type="submit"]) {
     background: $colorWhite;
     max-width: $unitBase * 50;
     margin: $unitBase * 2 auto;
-    padding: $unitBase * 4;
+    h1, h2 {
+        padding-left: $unitBase * 2;
+        padding-right: $unitBase * 2;
+    }
+    h1 {
+        padding-top: $unitBase * 4;
+    }
+    h3 {
+        display: flex;
+        align-items: center;
+        span {
+            box-sizing: border-box;
+            display: inline-flex;
+            width: $unitBase * 2;
+            height: $unitBase * 2;
+            font-size: $unitType;
+            padding: $unitBase;
+            justify-content: center;
+            align-items: center;
+            background: $colorBase;
+            color: $colorWhite;
+            border-radius: $unitBase * 20;
+            margin-right: $unitBase;
+        }
+    }
+    section {
+        border-top: 1px solid mix($colorAction, $colorWhite, 20%);
+        padding: $unitBase * 2;
+        &:first-of-type {
+            border-top: 0;
+        }
+    }
 }
 
 .charity-list {
