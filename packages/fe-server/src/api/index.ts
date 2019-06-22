@@ -22,9 +22,12 @@ const mockData: DashboardData = {
   fund_value: 67621.1809563419,
 };
 
-export const getDashboardData = (email: string): Promise<{ data: DashboardData }> =>
+export const getDashboardData = (email: string, password: string): Promise<{ data: DashboardData }> =>
   useMock
     ? new Promise(res => {
         setTimeout(res, 1000);
       }).then(() => ({ data: mockData }))
-    : axios.get(`${baseUrl}/get/${email}`);
+    : axios.post(`${baseUrl}/get`, {
+        email,
+        password,
+      });

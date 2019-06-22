@@ -28,8 +28,7 @@ export default () => {
 
   const onLoginSubmit = useCallback(
     (async (formData, _, callback) => {
-      const { data } = await getDashboardData(formData.email);
-      console.log('response data', data);
+      const { data } = await getDashboardData(formData.email, formData.password);
       callback();
 
       dispatch({
@@ -56,7 +55,7 @@ export default () => {
       break;
     }
     case 'DASHBOARD': {
-      component = state.dashboardData && <DashboardContent dashboardData={state.dashboardData} onLogOut={onLogOut}/>;
+      component = state.dashboardData && <DashboardContent dashboardData={state.dashboardData} onLogOut={onLogOut} />;
       break;
     }
   }
