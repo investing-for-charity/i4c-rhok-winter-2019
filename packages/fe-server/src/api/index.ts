@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { DashboardData } from './types';
 
-const useMock = false;
+const useMock = process.env.NODE_ENV !== 'production';
 const baseUrl = `https://rhok-i4c-winter2019-fe-pyserv.herokuapp.com/`;
 
 const mockData: DashboardData = {
