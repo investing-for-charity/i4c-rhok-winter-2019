@@ -46,3 +46,25 @@ a:active {
   justify-content: center;
   align-items: center;
 }
+
+.c-calculator__donations-and-causes {
+  height: 600px;
+  justify-content: space-evenly;
+}
+
+.c-calculator__intro {
+  height: 600px;
+  justify-content: center;
+}
+
+.c-calculator__intro h3 {
+  font-size: 3em;
+}
+.c-calculator__intro p {
+  font-size: 1.4em;
+}
+
+.c-calculator__causes {
+  height: 600px;
+  justify-content: center;
+}

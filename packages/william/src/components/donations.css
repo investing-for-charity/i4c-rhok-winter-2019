@@ -1,3 +1,14 @@
 .c-donations {
   opacity: 1;
+  font-size: 1.5em;
+}
+
+.c-donations:hover,
+.c-donations:focus,
+.c-donations:active {
+  opacity: 1;
+}
+
+.c-donation--unfocus {
+  opacity: 0.8;
 }

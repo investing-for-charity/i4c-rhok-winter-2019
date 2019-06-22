@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { css, jsx } from '@emotion/core';
+import { jsx } from '@emotion/core';
 import { HashRouter, Route } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import Homepage from './components/Homepage';
