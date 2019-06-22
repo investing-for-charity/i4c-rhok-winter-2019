@@ -7,7 +7,7 @@ from flask_cors import CORS
 from googlesheets import get_sheet_content
 
 app = Flask(__name__)
-CORS(app)
+cors = CORS(app, resources={r"/get/*": {"origins": "investing-for-charity.github.io"}})
 
 
 def _to_float(x):
