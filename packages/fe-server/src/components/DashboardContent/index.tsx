@@ -71,10 +71,11 @@ export default ({
             <tr>
               <td>
                 {charity_name}
+                <br />
                 <small>{cause}</small>
               </td>
               <td css={moneyCss}>{fmtNum(percent)}%</td>
-              <td css={moneyCss}>{fmtNum((annual_distribution_percent / 100) * fund_value * (percent / 100))}%</td>
+              <td css={moneyCss}>${fmtNum((annual_distribution_percent / 100) * fund_value * (percent / 100))}</td>
             </tr>
           ))}
         </tbody>
