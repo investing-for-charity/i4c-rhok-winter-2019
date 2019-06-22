@@ -1,7 +1,28 @@
 .c-cause {
   opacity: 0.2;
+  font-size: 1.5em;
 }
 
+.c-cause li {
+  max-width: 48%;
+}
+
+.c-cause--selected li {
+  max-width: 30%;
+}
+
+.c-cause button {
+  background-color: black;
+  border: 0;
+}
 .c-cause--focus {
   opacity: 1;
+}
+
+.c-cause__image {
+  max-width: 100%;
+}
+
+.c-cause__images--unfocused {
+  opacity: 0.2;
 }
