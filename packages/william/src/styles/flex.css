@@ -19,3 +19,11 @@
 .g-flex__container--justify-space-between {
   justify-content: space-between;
 }
+
+.g-flex__container--justify-space-around {
+  justify-content: space-around;
+}
+
+.g-flex__container--justify-space-around {
+  justify-content: space-around;
+}
