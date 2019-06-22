@@ -64,6 +64,16 @@ body {
   padding: 0.75rem;
 }
 
+.custom-select {
+  -webkit-appearance: none;
+  font-size: 1.5rem;
+  border: 1px solid #eee;
+  width: 100%;
+  padding: 1rem;
+  text-align-last: center;
+  cursor: pointer;
+}
+
 .contribution-results {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -101,6 +111,71 @@ body {
 .contribution-results h2 span {
   font-family: "Roboto Mono", monospace;
   font-weight: normal;
+}
+
+.simulator {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.simulator #achieve-impact-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  width: 50%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.simulator #achieve-impact-group .impact-group {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 4rem 4rem;
+      grid-template-rows: 4rem 4rem;
+  width: 30%;
+}
+
+.simulator #achieve-impact-group .impact-group h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.simulator #post-text {
+  margin-top: 4rem;
+}
+
+#impact-intro {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+#impact-intro h1,
+#impact-intro h3 {
+  padding: 0 0.4rem;
+  margin: 0 0 3rem;
 }
 
 body {
