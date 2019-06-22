@@ -5,7 +5,7 @@ import Carousel from './components/Carousel';
 import DonationBox from './components/DonationBox';
 import Slider from './components/Slider';
 
-import './App.less';
+import './App.scss';
 
 
 class App extends Component {
