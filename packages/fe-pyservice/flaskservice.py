@@ -72,5 +72,4 @@ def show_user_profile(email_address):
 
 
 if __name__ == '__main__':
-    # 10.1.4.241
     app.run(host='0.0.0.0')
