@@ -1,9 +1,11 @@
 from flask import Flask
 from flask import jsonify
+from flask_cors import CORS
+
 from googlesheets import get_sheet_content
 
 app = Flask(__name__)
-
+CORS(app)
 
 def _to_float(x):
     if isinstance(x, str):
