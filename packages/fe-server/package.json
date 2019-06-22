@@ -1,6 +1,7 @@
 {
   "name": "fe-server",
   "version": "0.1.0",
+  "homepage": "https://investing-for-charity.github.io/i4c-rhok-winter-2019",
   "private": true,
   "dependencies": {
     "@atlaskit/button": "^13.0.8",
@@ -21,6 +22,8 @@
     "typescript": "^3.5.2"
   },
   "scripts": {
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
