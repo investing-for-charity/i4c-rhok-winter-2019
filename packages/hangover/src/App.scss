@@ -42,7 +42,7 @@ code {
 .slider {
     width: 100%;
     max-width: $unitBase * 30;
-    
+
     label {
         box-sizing: border-box;
         // padding: 0 $unitBase * 1.5;
@@ -69,6 +69,34 @@ input {
     &[type="range"] {
         appearance: none;
         background: $colorAction;
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            border: $unitLine solid $colorBase;
+            height: $unitBase * 2;
+            width: $unitBase * 2;
+            border-radius: $unitBase * 2;
+            background: $colorWhite;
+            cursor: pointer;
+            margin-top: $unitBase / -3;
+        }
+        &::-moz-range-thumb {
+            border: $unitLine solid $colorBase;
+            height: $unitBase * 2;
+            width: $unitBase * 2;
+            border-radius: $unitBase * 2;
+            background: $colorWhite;
+            cursor: pointer;
+            margin-top: $unitBase * -3;
+        }
+        &::-ms-thumb {
+            border: $unitLine solid $colorBase;
+            height: $unitBase * 2;
+            width: $unitBase * 2;
+            border-radius: $unitBase * 2;
+            background: $colorWhite;
+            cursor: pointer;
+            margin-top: $unitBase / -3;
+        }
     }
 }
 
@@ -106,6 +134,17 @@ input {
         padding: $unitBase * 2;
         &:first-of-type {
             border-top: 0;
+        }
+    }
+    .slider {
+        position: relative;
+        span {
+            background: $colorBase;
+            padding: $unitBase / 3 $unitBase / 2;
+            color: $colorWhite;
+            border-radius: $unitBase / 2;
+            position: absolute;
+            top: $unitBase / 4;
         }
     }
 }
