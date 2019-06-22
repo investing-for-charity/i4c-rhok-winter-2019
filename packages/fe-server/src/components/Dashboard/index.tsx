@@ -6,7 +6,6 @@ import Login from '../Login';
 import DashboardContent from '../DashboardContent';
 import { getDashboardData } from '../../api';
 import { DashboardData } from '../../api/types';
-import { cardCss } from '../Card';
 
 type Step = 'LOGIN' | 'DASHBOARD';
 type State = {

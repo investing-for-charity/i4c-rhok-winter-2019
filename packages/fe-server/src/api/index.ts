@@ -1,9 +1,8 @@
 import axios from 'axios';
 import { DashboardData } from './types';
 
-// const useMock = false;
-const useMock = true;
-const baseUrl = `https://rhok-i4c-winter2019-fe-pyservi.herokuapp.com`;
+const useMock = false;
+const baseUrl = `https://rhok-i4c-winter2019-fe-pyserv.herokuapp.com/`;
 
 const mockData: DashboardData = {
   actual_distribution: 10143.18,
