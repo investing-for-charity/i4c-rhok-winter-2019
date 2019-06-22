@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDollarSign } from "@fortawesome/free-solid-svg-icons";
 import InputRange from "react-input-range";
+import causeData from "../data/causeInfo.json";
 
 class ContributionForm extends Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class ContributionForm extends Component {
     this.state = {
       fundTotal: "",
       contributionPercentage: "",
+      data: causeData,
       fundBoundaries: {
         minAmount: 500000,
         maxAmount: 1000000
@@ -73,8 +75,56 @@ class ContributionForm extends Component {
           </div>
           <div className="form-group">
             <h1>
+              <label htmlFor="contribution-cause">
+                You have decided to support
+              </label>
+            </h1>
+            {/*Underprivileged Youth
+              Refugees in Australia
+              Child Slavery
+              Mental Health
+              Women & Domestic Violence
+              Global Poverty
+              Youth at Risk
+              Social Enterprise
+              Mental Health */}
+            <select id="contribution-cause" className="form-input">
+              <option
+                value={this.state.data.causes.underPrivilagedYouth.causeName}
+              >
+                {this.state.data.causes.underPrivilagedYouth.causeName}
+              </option>
+              <option
+                value={this.state.data.causes.refugeesInAustralia.causeName}
+              >
+                {this.state.data.causes.refugeesInAustralia.causeName}
+              </option>
+              <option value={this.state.data.causes.childSlavery.causeName}>
+                {this.state.data.causes.childSlavery.causeName}
+              </option>
+              <option value={this.state.data.causes.mentalHealth.causeName}>
+                {this.state.data.causes.mentalHealth.causeName}
+              </option>
+              <option
+                value={this.state.data.causes.womanDomesticViolence.causeName}
+              >
+                {this.state.data.causes.womanDomesticViolence.causeName}
+              </option>
+              <option value={this.state.data.causes.globalPoverty.causeName}>
+                {this.state.data.causes.globalPoverty.causeName}
+              </option>
+              <option value={this.state.data.causes.youthAtRisk.causeName}>
+                {this.state.data.causes.youthAtRisk.causeName}
+              </option>
+              <option value={this.state.data.causes.socialEnterprise.causeName}>
+                {this.state.data.causes.socialEnterprise.causeName}
+              </option>
+            </select>
+          </div>
+          <div className="form-group">
+            <h1>
               <label id="contribution-percentage-label" className="input-label">
-                Contribution Percentage
+                Annual Contribution Percentage
               </label>
             </h1>
             <InputRange

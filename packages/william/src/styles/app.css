@@ -1,0 +1,46 @@
+html {
+  font-size: 100%;
+  font-size: 20px;
+}
+
+a {
+  color: white;
+  padding-left: 1em;
+}
+
+a:hover,
+a:focus,
+a:active {
+  text-decoration: underline;
+}
+
+.c-app {
+  color: black;
+  background-color: white;
+}
+
+.c-header {
+  background-color: black;
+  color: white;
+  border-bottom: 1px solid whitesmoke;
+  padding: 1em 0;
+}
+
+.c-header {
+  background-color: black;
+  color: white;
+}
+
+.c-calculator {
+  background-color: black;
+  color: white;
+  min-height: 600px;
+}
+
+.c-calculator__number {
+  height: 2em;
+  width: 2em;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}

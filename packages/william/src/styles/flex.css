@@ -1,0 +1,21 @@
+.g-flex__container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  list-style: none;
+  list-style-type: none;
+}
+
+.g-flex__item {
+  flex: 0 1 auto;
+}
+
+.g-flex__container--column {
+  flex-direction: column;
+}
+
+.g-flex__container--justify-space-between {
+  justify-content: space-between;
+}
