@@ -1,6 +1,0 @@
-flask>=1.0
-flask_cors>=3.0
-pandas>=0.24
-google-api-python-client
-google-auth-httplib2
-google-auth-oauthlib
