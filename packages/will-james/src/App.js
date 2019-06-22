@@ -2,7 +2,6 @@ import React from "react";
 
 // components
 import ContributionForm from "./components/ContributionForm";
-import About from "./components/About";
 
 // scripts
 import "./scripts/contributionForm";
@@ -16,7 +15,6 @@ function App() {
     <div className="App">
       <div className="App-content">
         <ContributionForm />
-        <About />
       </div>
     </div>
   );
