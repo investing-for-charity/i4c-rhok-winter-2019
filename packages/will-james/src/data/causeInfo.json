@@ -1,0 +1,156 @@
+{
+  "causes": {
+    "underPrivilagedYouth": {
+      "causeName": "Underprivilaged Youth",
+      "charityName": "Life for Koori Kids",
+      "thousandAchieves": {
+        "achieve1": {
+          "achieveName": "Quality Meals",
+          "achieveAmount": 53
+        },
+        "achieve2": {
+          "achieveName": "Educational Sessions",
+          "achieveAmount": 11
+        },
+        "achieve3": {
+          "achieveName": "Crisis Interventions",
+          "achieveAmount": 21
+        },
+        "postTxt": ""
+      }
+    },
+    "refugeesInAustralia": {
+      "causeName": "Refugees in Australia",
+      "charityName": "St Francis Social Services",
+      "thousandAchieves": {
+        "achieve1": {
+          "achieveName": "Safe Sleeps",
+          "achieveAmount": 16
+        },
+        "achieve2": {
+          "achieveName": "Food and Grocery Stamps",
+          "achieveAmount": 1.6
+        },
+        "achieve3": {
+          "achieveName": "Dollars in Financial Support",
+          "achieveAmount": 93
+        },
+        "postTxt": "As well as access to English Classes, Employement Training, and a Local Mentor"
+      }
+    },
+    "childSlavery": {
+      "causeName": "Child Slavery",
+      "charityName": "Connecting Hands",
+      "thousandAchieves": {
+        "achieve1": {
+          "achieveName": "Months Vocational Training",
+          "achieveAmount": 6
+        },
+        "achieve2": {
+          "achieveName": "Months Accommodation",
+          "achieveAmount": 6
+        },
+        "achieve3": {
+          "achieveName": "Social support to aid integration",
+          "achieveAmount": null
+        },
+        "postTxt": "As well as Medical and Psychological Care"
+      }
+    },
+    "womanDomesticViolence": {
+      "causeName": "Woman and Domestic Violence",
+      "charityName": "Port Macquarie Hastings Specialist Service",
+      "thousandAchieves": {
+        "achieve1": {
+          "achieveName": "Victims with counselling support",
+          "achieveAmount": 0.6
+        },
+        "achieve2": {
+          "achieveName": "Relocations to new homes",
+          "achieveAmount": 0.34
+        },
+        "achieve3": {
+          "achieveName": "",
+          "achieveAmount": null
+        },
+        "postTxt": ""
+      }
+    },
+    "globalPoverty": {
+      "causeName": "Global Poverty",
+      "charityName": "Against Malaria Foundation",
+      "thousandAchieves": {
+        "achieve1": {
+          "achieveName": "Long lasting insecticidal nets",
+          "achieveAmount": 300
+        },
+        "achieve2": {
+          "achieveName": "Lives saved by Malaria prevention",
+          "achieveAmount": 0.2
+        },
+        "achieve3": {
+          "achieveName": "",
+          "achieveAmount": null
+        },
+        "postTxt": "As well as addressing the UN's global goals relating to Malaria elimination"
+      }
+    },
+    "youthAtRisk": {
+      "causeName": "Youth at Risk",
+      "charityName": "Streetwork Incorporated",
+      "thousandAchieves": {
+        "achieve1": {
+          "achieveName": "Mentor for 6 months",
+          "achieveAmount": 1
+        },
+        "achieve2": {
+          "achieveName": "Support after crises",
+          "achieveAmount": null
+        },
+        "achieve3": {
+          "achieveName": "Advice to get back on track",
+          "achieveAmount": null
+        },
+        "postTxt": ""
+      }
+    },
+    "socialEnterprise": {
+      "causeName": "Social Enterprise",
+      "charityName": "The Bread and Butter Project",
+      "thousandAchieves": {
+        "achieve1": {
+          "achieveName": "Weeks of full time work, at $634.70/wk",
+          "achieveAmount": 3.6
+        },
+        "achieve2": {
+          "achieveName": "On site training towards TAFE accreditation in food proessing",
+          "achieveAmount": null
+        },
+        "achieve3": {
+          "achieveName": "One-on-one English tuition and counselling services",
+          "achieveAmount": null
+        },
+        "postTxt": "As well as support in obtaining full time employment after becoming qualified"
+      }
+    },
+    "mentalHealth": {
+      "causeName": "Mental Health",
+      "charityName": "PANDA",
+      "thousandAchieves": {
+        "achieve1": {
+          "achieveName": "Hours of the national call centre",
+          "achieveAmount": 1.12
+        },
+        "achieve2": {
+          "achieveName": "People reached in awareness media campaigns",
+          "achieveAmount": null
+        },
+        "achieve3": {
+          "achieveName": "Health service professionals educated on perinatal anxiety and depression",
+          "achieveAmount": 1.2
+        },
+        "postTxt": ""
+      }
+    }
+  }
+}
