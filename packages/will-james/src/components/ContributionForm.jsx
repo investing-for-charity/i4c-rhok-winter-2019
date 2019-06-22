@@ -7,7 +7,7 @@ import causeData from "../data/causeInfo.json";
 import underPrivilegedYouthLogo from "../assets/underprivileged-youth.png";
 import refugeesInAustraliaLogo from "../assets/refugees-in-australia.png";
 import childSlaveryLogo from "../assets/child-slavery.png";
-import mentalHealthLogo from "../assets/mental-health.png";
+import mentalHealthLogo from "../assets/mental-health.jpg";
 import womanDomesticViolenceLogo from "../assets/women-domestic-violence.png";
 import globalPovertyLogo from "../assets/global-poverty.png";
 import youthAtRiskLogo from "../assets/youth-at-risk.png";
@@ -151,10 +151,13 @@ class ContributionForm extends Component {
     return (
       <div className="simulator-container">
         <section className="simulator-form">
-          <div className="contribution-form">
+          <div className="contribution-form" id="select-cause">
+            <div className="background" />
             <div className="form-group">
               <h1>
-                <label htmlFor="contribution-cause">Select Cause:</label>
+                <label htmlFor="contribution-cause">
+                  You have decided to support
+                </label>
               </h1>
               <select
                 id="contribution-cause"
@@ -198,18 +201,29 @@ class ContributionForm extends Component {
             </div>
             <div className="contribution-results">
               <div id="achieve-charity">
-                <h3>we have determined the most effective charity to be</h3>
+                <h3>The most effective charity supporting this cause is</h3>
+                <img
+                  className="cause-logo"
+                  src={this.state.logo}
+                  alt="cause-logo"
+                />
                 <h1>{this.state.selectedCharityData.charityName}</h1>
               </div>
-              <img class="cause-logo" src={this.state.logo} alt="cause-logo" />
             </div>
+          </div>
+        </section>
+        <section className="simulator">
+          <div className="contribution-form" id="select-contribution">
             <div className="contribution">
               <div className="form-group">
-                <h1>
-                  <label htmlFor="fund-total-display" className="input-label">
-                    Your Starting Balance
-                  </label>
-                </h1>
+                <div>
+                  <h1>
+                    <label htmlFor="fund-total-display" className="input-label">
+                      Your Starting Balance
+                    </label>
+                  </h1>
+                  <span>$500 minimum starting balance</span>
+                </div>
                 <div className="input-group" id="fund-total">
                   <FontAwesomeIcon icon={faDollarSign} />
                   <input
@@ -217,11 +231,18 @@ class ContributionForm extends Component {
                     id="fund-total-display"
                     min="500"
                     defaultValue={numberWithCommas(fundTotal)}
-                    onChange={x => this.setState({ fundTotal: x.target.value })}
+                    onChange={x =>
+                      this.setState({
+                        fundTotal:
+                          parseFloat(x.target.value) < 500
+                            ? "500"
+                            : x.target.value
+                      })
+                    }
                   />
                 </div>
               </div>
-              <div className="form-group">
+              <div className="form-group" id="your-contribution">
                 <h1>Your Contribution is</h1>
                 <h2 className="form-input-group">
                   <FontAwesomeIcon icon={faDollarSign} />
@@ -242,7 +263,7 @@ class ContributionForm extends Component {
                 <InputRange
                   id="contribution-percentage-input"
                   aria-labelledby="contribution-percentage-label"
-                  className="form-input-group"
+                  className="input-range"
                   formatLabel={value => value.toFixed(1) + "%"}
                   maxValue={25}
                   minValue={4}
@@ -254,10 +275,10 @@ class ContributionForm extends Component {
                 />
               </div>
             </div>
-            <span>change your annual distribution percentage to adjust</span>
+            <span id="simulator-tooltip">
+              change your annual distribution percentage to adjust
+            </span>
           </div>
-        </section>
-        <section className="simulator">
           <div id="impact-intro">
             <h3>With your contribution </h3>
             <h1>{this.state.selectedCharityData.charityName} </h1>
