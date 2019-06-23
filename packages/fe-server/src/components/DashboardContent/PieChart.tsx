@@ -3,7 +3,6 @@ import { css, jsx } from '@emotion/core';
 import { DashboardData } from '../../api/types';
 import { fmtNum } from './utils';
 import { VictoryLegend, VictoryPie, VictoryLabel, VictoryTooltip } from 'victory';
-import { Fragment } from 'react';
 
 type Props = {
   dashboardData: DashboardData;
@@ -39,7 +38,13 @@ export default ({ dashboardData: { charities, annual_distribution_percent, fund_
     (annual_distribution_percent / 100) * fund_value * (charityPercent / 100);
 
   return (
-    <Fragment>
+    <div
+      css={css`
+        @media (min-width: 420px) {
+          display: flex;
+        }
+      `}
+    >
       <VictoryPie
         style={{ labels: { fill: 'black' } }}
         padAngle={1}
@@ -65,6 +70,6 @@ export default ({ dashboardData: { charities, annual_distribution_percent, fund_
             name: charity.cause,
           }))}
       />
-    </Fragment>
+    </div>
   );
 };

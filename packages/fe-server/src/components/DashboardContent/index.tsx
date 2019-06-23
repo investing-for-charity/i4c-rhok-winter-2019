@@ -32,7 +32,6 @@ const sectionCss = css`
 
   @media (min-width: 420px) {
     width: 50%;
-    flex-direction: row;
   }
 `;
 
