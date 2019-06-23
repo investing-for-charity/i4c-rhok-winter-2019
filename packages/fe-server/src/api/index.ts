@@ -1,9 +1,8 @@
 import axios from 'axios';
 import { DashboardData } from './types';
 
-// const useMock = false;
-const useMock = true;
-const baseUrl = `https://rhok-i4c-winter2019-fe-pyservi.herokuapp.com`;
+const useMock = process.env.NODE_ENV !== 'production';
+const baseUrl = `https://rhok-i4c-winter2019-fe-pyserv.herokuapp.com/`;
 
 const mockData: DashboardData = {
   actual_distribution: 10143.18,
@@ -23,9 +22,12 @@ const mockData: DashboardData = {
   fund_value: 67621.1809563419,
 };
 
-export const getDashboardData = (email: string): Promise<{ data: DashboardData }> =>
+export const getDashboardData = (email: string, password: string): Promise<{ data: DashboardData }> =>
   useMock
     ? new Promise(res => {
         setTimeout(res, 1000);
       }).then(() => ({ data: mockData }))
-    : axios.get(`${baseUrl}/get/${email}`);
+    : axios.post(`${baseUrl}/get`, {
+        email,
+        password,
+      });

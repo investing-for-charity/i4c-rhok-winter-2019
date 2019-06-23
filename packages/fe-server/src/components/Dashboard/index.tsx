@@ -6,7 +6,6 @@ import Login from '../Login';
 import DashboardContent from '../DashboardContent';
 import { getDashboardData } from '../../api';
 import { DashboardData } from '../../api/types';
-import { cardCss } from '../Card';
 
 type Step = 'LOGIN' | 'DASHBOARD';
 type State = {
@@ -29,8 +28,7 @@ export default () => {
 
   const onLoginSubmit = useCallback(
     (async (formData, _, callback) => {
-      const { data } = await getDashboardData(formData.email);
-      console.log('response data', data);
+      const { data } = await getDashboardData(formData.email, formData.password);
       callback();
 
       dispatch({
@@ -42,6 +40,14 @@ export default () => {
     []
   );
 
+  const onLogOut = useCallback(() => {
+    dispatch({
+      email: '',
+      step: 'LOGIN',
+      dashboardData: undefined,
+    });
+  }, []);
+
   let component: React.ReactNode;
   switch (state.step) {
     case 'LOGIN': {
@@ -49,7 +55,7 @@ export default () => {
       break;
     }
     case 'DASHBOARD': {
-      component = state.dashboardData && <DashboardContent dashboardData={state.dashboardData} />;
+      component = state.dashboardData && <DashboardContent dashboardData={state.dashboardData} onLogOut={onLogOut} />;
       break;
     }
   }

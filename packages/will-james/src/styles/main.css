@@ -18,7 +18,6 @@ body {
           align-items: center;
   width: 100%;
   text-align: center;
-  margin-bottom: 2rem;
 }
 
 .form-group {
@@ -30,7 +29,7 @@ body {
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
   padding: 1rem;
-  width: 50%;
+  width: 35%;
 }
 
 .form-group #fund-total {
@@ -48,7 +47,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  padding: 1.05rem 0.75rem;
+  padding: 1.25rem 0.75rem;
   width: 3rem;
   height: 1.5rem;
   text-align: center;
@@ -56,10 +55,13 @@ body {
 }
 
 .form-group #fund-total .form-input {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-size: 1.5rem;
   font-family: "Roboto Mono", monospace;
   text-align: center;
-  border: 1px solid #eee;
+  border: 1px solid #5e5e5e6e;
+  border-radius: 3px;
   width: 100%;
   padding: 0.75rem;
 }
@@ -67,10 +69,12 @@ body {
 .custom-select {
   -webkit-appearance: none;
   font-size: 1.5rem;
-  border: 1px solid #eee;
+  border: 1px solid #5e5e5e 50%;
+  border-radius: 3px;
   width: 100%;
   padding: 1rem;
   text-align-last: center;
+  text-align: center;
   cursor: pointer;
 }
 
@@ -113,6 +117,18 @@ body {
   font-weight: normal;
 }
 
+#achieve-1 {
+  background-color: #eefdb8;
+}
+
+#achieve-2 {
+  background-color: #cdf9b5;
+}
+
+#achieve-3 {
+  background-color: #aeefdc;
+}
+
 .simulator {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -125,7 +141,12 @@ body {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
+  height: 100vh;
   text-align: center;
+  background-color: #cddcdc;
+  background-image: radial-gradient(at 50% 100%, rgba(255, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
+  background-image: radial-gradient(at 50% 100%, rgba(255, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 0%, rgba(0, 0, 0, 0.25) 100%);
+  background-blend-mode: screen, overlay;
 }
 
 .simulator #achieve-impact-group {
@@ -136,7 +157,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-flow: row;
           flex-flow: row;
-  width: 50%;
+  width: 80%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -145,18 +166,67 @@ body {
 .simulator #achieve-impact-group .impact-group {
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 4rem 4rem;
-      grid-template-rows: 4rem 4rem;
+  -ms-grid-rows: 120px 60px;
+      grid-template-rows: 120px 60px;
   width: 30%;
+  border-radius: 3px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .simulator #achieve-impact-group .impact-group h1 {
-  margin: 0;
+  padding: 0;
+}
+
+.simulator #achieve-impact-group .impact-group h3 {
   padding: 0;
 }
 
 .simulator #post-text {
-  margin-top: 4rem;
+  margin: 1.6rem auto;
+}
+
+.contribution {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 2rem;
+  width: 80%;
+}
+
+.contribution .form-group {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 8rem 4rem;
+      grid-template-rows: 8rem 4rem;
+  padding: 0;
+  margin: 0 0 2rem;
+  width: 30%;
+}
+
+.contribution .form-group .form-input-group {
+  margin: 0;
+  padding: 0.75rem;
+  display: block;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.contribution .form-group .form-input-group svg {
+  padding-right: 1rem;
+}
+
+.contribution .form-group .form-input-group span {
+  font-family: "Roboto Mono", monospace;
+  font-weight: normal;
 }
 
 #impact-intro {
@@ -170,12 +240,56 @@ body {
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
+  margin-bottom: 2rem;
 }
 
 #impact-intro h1,
 #impact-intro h3 {
   padding: 0 0.4rem;
-  margin: 0 0 3rem;
+  margin: 0;
+}
+
+.input-range__label-container {
+  color: #3d3d3d;
+  font-size: 1rem;
+  font-family: "Roboto Mono", monospace;
+  font-weight: normal;
+}
+
+.input-range {
+  margin: auto;
+}
+
+.contribution-results img {
+  height: 40vh;
+}
+
+#your-contribution {
+  background-color: #ffffff;
+  border-radius: 3px;
+}
+
+#simulator-tooltip {
+  padding-bottom: 2rem;
+}
+
+#select-cause {
+  position: relative;
+  height: 100vh;
+}
+
+#select-cause .background {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background-image: url("../assets/Community.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.2;
+  height: 100%;
+  width: 100%;
 }
 
 body {
