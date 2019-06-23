@@ -5,6 +5,16 @@ body {
   margin: 0;
 }
 
+.up-arrow {
+  border-color: #cddcdc9d transparent;
+  border-style: solid;
+  border-width: 0px 40px 40px 40px;
+  height: 0px;
+  width: 0px;
+  margin-top: -40px;
+  margin-bottom: 20px;
+}
+
 .contribution-form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -118,15 +128,18 @@ body {
 }
 
 #achieve-1 {
-  background-color: #eefdb8;
+  background-color: #3d3d3d0f;
+  padding: 0 0 1rem;
 }
 
 #achieve-2 {
-  background-color: #cdf9b5;
+  background-color: #3d3d3d0f;
+  padding: 0 0 1rem;
 }
 
 #achieve-3 {
-  background-color: #aeefdc;
+  background-color: #3d3d3d0f;
+  padding: 0 0 1rem;
 }
 
 .simulator {
@@ -141,7 +154,6 @@ body {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  height: 100vh;
   text-align: center;
   background-color: #cddcdc;
   background-image: radial-gradient(at 50% 100%, rgba(255, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
@@ -149,7 +161,13 @@ body {
   background-blend-mode: screen, overlay;
 }
 
-.simulator #achieve-impact-group {
+.simulator #impact-container {
+  width: 80%;
+  display: -ms-grid;
+  display: grid;
+}
+
+.simulator #impact-container #impact-intro {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -157,17 +175,38 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-flow: row;
           flex-flow: row;
-  width: 80%;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-bottom: 1rem;
+}
+
+.simulator #impact-container #impact-intro h1,
+.simulator #impact-container #impact-intro h3 {
+  padding: 0 0.4rem;
+  margin: 0;
+}
+
+.simulator #impact-container #achieve-impact-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  width: 100%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  border-radius: 3px;
 }
 
-.simulator #achieve-impact-group .impact-group {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: 120px 60px;
-      grid-template-rows: 120px 60px;
+.simulator #impact-container #achieve-impact-group .impact-group {
+  display: block;
   width: 30%;
   border-radius: 3px;
   -webkit-box-align: center;
@@ -175,15 +214,7 @@ body {
           align-items: center;
 }
 
-.simulator #achieve-impact-group .impact-group h1 {
-  padding: 0;
-}
-
-.simulator #achieve-impact-group .impact-group h3 {
-  padding: 0;
-}
-
-.simulator #post-text {
+.simulator #impact-container #post-text {
   margin: 1.6rem auto;
 }
 
@@ -229,26 +260,6 @@ body {
   font-weight: normal;
 }
 
-#impact-intro {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row;
-          flex-flow: row;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
-  margin-bottom: 2rem;
-}
-
-#impact-intro h1,
-#impact-intro h3 {
-  padding: 0 0.4rem;
-  margin: 0;
-}
-
 .input-range__label-container {
   color: #3d3d3d;
   font-size: 1rem;
@@ -261,7 +272,7 @@ body {
 }
 
 .contribution-results img {
-  height: 40vh;
+  height: 150px;
 }
 
 #your-contribution {
@@ -275,7 +286,7 @@ body {
 
 #select-cause {
   position: relative;
-  height: 100vh;
+  height: 600px;
 }
 
 #select-cause .background {
@@ -287,7 +298,7 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  opacity: 0.2;
+  opacity: 0.3;
   height: 100%;
   width: 100%;
 }
@@ -298,5 +309,17 @@ body {
 
 h1 {
   padding: 0 0 2rem;
+}
+
+.recharts-legend-item-text {
+  font-size: 1.25rem;
+}
+
+.recharts-label {
+  font-size: 1.25rem;
+}
+
+#prompt {
+  padding-top: 2rem;
 }
 /*# sourceMappingURL=main.css.map */

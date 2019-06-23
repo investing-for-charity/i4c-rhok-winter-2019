@@ -4,15 +4,16 @@ import { css, jsx } from '@emotion/core';
 import { useReducer, useCallback } from 'react';
 import Login from '../Login';
 import DashboardContent from '../DashboardContent';
-import { getDashboardData } from '../../api';
+import { getDashboardData, mockData } from '../../api';
 import { DashboardData } from '../../api/types';
 
 type Step = 'LOGIN' | 'DASHBOARD';
 type State = {
-  email: string;
   step: Step;
   dashboardData?: DashboardData;
 };
+
+const useMock = false;
 
 const reducer = (state: State, action: Partial<State>): State => ({
   ...state,
@@ -21,9 +22,8 @@ const reducer = (state: State, action: Partial<State>): State => ({
 
 export default () => {
   const [state, dispatch] = useReducer(reducer, {
-    email: '',
-    step: 'LOGIN',
-    dashboardData: undefined,
+    step: useMock ? 'DASHBOARD' : 'LOGIN',
+    dashboardData: useMock ? mockData : undefined,
   });
 
   const onLoginSubmit = useCallback(
@@ -32,7 +32,6 @@ export default () => {
       callback();
 
       dispatch({
-        email: formData.email,
         step: 'DASHBOARD',
         dashboardData: data,
       });
@@ -42,7 +41,6 @@ export default () => {
 
   const onLogOut = useCallback(() => {
     dispatch({
-      email: '',
       step: 'LOGIN',
       dashboardData: undefined,
     });
@@ -63,8 +61,9 @@ export default () => {
   return (
     <div
       css={css`
-        height: 100vh;
-        overflow-y: hidden;
+        min-height: 100vh;
+        height: 100%;
+        padding: 40px 0;
         background: #57d9a3;
       `}
     >
