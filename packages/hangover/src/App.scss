@@ -285,9 +285,26 @@ input {
     display: flex;
     flex-wrap: wrap;
     height: auto;
+    padding-left: 0;
     li {
-        display: block;
         width: 45%;
-        height: $unitBase * 3;
+        display: block;
+        padding: 0 $unitBase / 2;
+        white-space: nowrap;
+        list-style: none;
+        cursor: pointer;
+        span {
+            border: $unitLine solid transparent;
+            border-radius: $unitBase;
+            display: inline-block;
+            padding: $unitBase;
+            text-decoration: none;
+            opacity: 0.7;
+
+            &:hover {
+                opacity: 1;
+                border-color: mix($colorBase, $colorWhite, 20%);
+            }
+        }
     }
 }

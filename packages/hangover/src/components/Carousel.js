@@ -41,7 +41,7 @@ class Carousel extends Component {
                         {this.state.showAll ? 'See all' : 'List'}
                     </button>
                 </div>
-                {this.state.showAll ? (
+                {!this.state.showAll ? (
                 <div className="charity-list">
                     <ul>
                         {Object.values(causes).map(cause => {
