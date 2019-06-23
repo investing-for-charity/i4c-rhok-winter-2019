@@ -109,7 +109,7 @@ class App extends Component {
                                 {'For '}
                                 <b>{this.state.distribution}%</b>
                                 {' of'}
-                                {' $'}<b>${this.state.donation}</b>
+                                {' $'}<b>{this.state.donation}</b>
                                 {' you will help '}<b>{selectedCause.charityName}</b>{' providing:'}
                             </>
                         }
