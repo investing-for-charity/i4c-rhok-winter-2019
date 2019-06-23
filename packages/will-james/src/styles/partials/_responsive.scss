@@ -1,0 +1,49 @@
+@media only screen and (max-width: 700px) {
+  .contribution-form {
+    .form-group {
+      width: 80%;
+    }
+  }
+
+  #impact-container {
+    display: flex !important;
+    flex-flow: column;
+    #impact-intro {
+      flex-flow: column !important;
+    }
+    #achieve-impact-group {
+      flex-flow: column !important;
+      .impact-group {
+        width: 100% !important;
+        margin: 0 0 1rem;
+      }
+    }
+  }
+
+  #prompt {
+    padding-top: 0;
+  }
+
+  #simulator-tooltip {
+    width: 80%;
+  }
+
+  .contribution {
+    display: block;
+    width: 80%;
+
+    .form-group {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  #select-cause {
+    .form-group {
+      width: 70%;
+    }
+  }
+}
