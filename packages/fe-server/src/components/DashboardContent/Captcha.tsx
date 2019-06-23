@@ -1,10 +1,14 @@
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core';
 import React from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
+import Button from '@atlaskit/button';
 
 const TEST_SITE_KEY = '6LfxNKoUAAAAAKiAptSHXNYktvQyd1olXzoS3Ibt';
 
 type Props = {
   onCaptchaSuccess: () => void;
+  text?: string;
 };
 
 type State = {
@@ -15,7 +19,7 @@ type State = {
 };
 
 export default class Captcha extends React.Component<Props, State> {
-  _reCaptchaRef: any;
+  recaptchaRef: React.RefObject<any>;
 
   constructor(props, ...args) {
     super(props, ...args);
@@ -25,12 +29,12 @@ export default class Captcha extends React.Component<Props, State> {
       load: false,
       expired: 'false',
     };
-    this._reCaptchaRef = React.createRef();
+    this.recaptchaRef = React.createRef();
   }
 
   componentDidMount() {
     this.setState({ load: true });
-    console.log('didMount - reCaptcha Ref-', this._reCaptchaRef);
+    console.log('didMount - reCaptcha Ref-', this.recaptchaRef);
   }
 
   handleChange = value => {
@@ -48,19 +52,35 @@ export default class Captcha extends React.Component<Props, State> {
     this.setState({ callback: 'called!' });
   };
 
+  onClick = () => {
+    if (this.recaptchaRef.current) {
+      this.recaptchaRef.current.execute();
+    }
+  };
+
   render() {
     const { value, callback, load, expired } = this.state;
     return (
-      <div>
-        {load && (
-          <ReCAPTCHA
-            theme="light"
-            ref={this._reCaptchaRef}
-            sitekey={TEST_SITE_KEY}
-            onChange={this.handleChange}
-            asyncScriptOnLoad={this.asyncScriptOnLoad}
-          />
-        )}
+      <div
+        css={css`
+          > button {
+            background: #36b37e;
+          }
+        `}
+      >
+        <Button appearance="primary" isLoading={!load} onClick={this.onClick}>
+          {this.props.text || 'Donate More'}
+          {load && (
+            <ReCAPTCHA
+              theme="light"
+              ref={this.recaptchaRef}
+              sitekey={TEST_SITE_KEY}
+              onChange={this.handleChange}
+              asyncScriptOnLoad={this.asyncScriptOnLoad}
+              size="invisible"
+            />
+          )}
+        </Button>
       </div>
     );
   }
