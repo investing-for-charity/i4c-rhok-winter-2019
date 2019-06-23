@@ -48,3 +48,21 @@
 .c-impact__list {
   padding-top: 2em;
 }
+
+.c-impact__account-button {
+  border-radius: 5px;
+  color: white;
+  background-color: black;
+  padding: 1em;
+  margin-left: 2em;
+  margin-top: 2em;
+  font-size: 0.8em;
+}
+
+.c-impact__account-button:hover,
+.c-impact__account-button:focus,
+.c-impact__account-button:active {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
