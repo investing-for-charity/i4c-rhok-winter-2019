@@ -21,6 +21,7 @@ class App extends Component {
   }
 
   handleDonationChange = (donation) => {
+    donation = donation >= 0 ? donation : 0;
     this.setState({donation}, () => this.calculateAmount())
   }
 
@@ -55,6 +56,7 @@ class App extends Component {
                 <Carousel
                     causes={causeData.causes}
                     handleCauseClick={this.handleCauseClick}
+                    selectedCause={this.state.selectedCause}
                 />
                 {selectedCause &&
                 <div>Selected Charity: {selectedCause.charityName}</div>
@@ -66,8 +68,10 @@ class App extends Component {
                     handleDistributionChange={this.handleDistributionChange}
                     distribution={this.state.distribution}
                 />
-            <Achievement achievements={this.state.achievements}/>
 
+            </section>
+            <section>
+              <Achievement achievements={this.state.achievements}/>
             </section>
         </main>
     );

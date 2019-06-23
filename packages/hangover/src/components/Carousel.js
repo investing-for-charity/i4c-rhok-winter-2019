@@ -1,29 +1,33 @@
 import React, { Component } from 'react';
 
-const SausageLink = ({cause, handleCauseClick}) => {
-    const handleClick = () => {
-        handleCauseClick(cause)
-    }
-
-    return (
-        <li>
-            <span
-                onClick={handleClick}
-            >
-                {cause.causeName}
-            </span>
-        </li>
-    );
+class SausageLink extends Component {
+        state = {
+            selected: false
+        }
+        handleClick = () => {
+            const {cause, handleCauseClick} = this.props
+            handleCauseClick(cause)
+            this.setState(({selected}) => {
+                return {selected: !selected}
+            })
+        }
+    render() {
+        const {cause} = this.props
+        return (
+            <li>
+                <span
+                    onClick={this.handleClick}
+                    // className={this.state.selected ? 'selected' : ''}
+                >
+                    {cause.causeName}
+                </span>
+            </li>
+        );
+        }
 }
 class Carousel extends Component {
-
     state = {
         showAll: false,
-    }
-
-    componentDidMount() {
-        this.el = document.createElement('div');
-
     }
     handleClick = () => {
         this.setState(({showAll}) => {
@@ -39,33 +43,20 @@ class Carousel extends Component {
                     <h3><span>2</span>Pick your Cause</h3>
                     <button onClick={this.handleClick}>See all</button>
                 </div>
-                {!this.state.showAll ? (
-                <div className="charity-list">
-                    <ul>
+                <div className={this.state.showAll ? '' : 'charity-list'}>
+                    <ul className={this.state.showAll ? 'tiles' : ''}>
                         {Object.values(causes).map(cause => {
                             return(
                                 <SausageLink key={cause.causeName}
                                 cause={cause}
                                 handleCauseClick={this.props.handleCauseClick}
+                                selectedCause={this.props.selectedCause}
                                 />
                                 );
                             })
                     }
                     </ul>
                 </div>
-                ) : (
-                    <ul className="tiles">
-                        {Object.values(causes).map(cause => {
-                            return(
-                                <SausageLink key={cause.causeName}
-                                cause={cause}
-                                handleCauseClick={this.props.handleCauseClick}
-                                />
-                                );
-                            })
-                        }
-                    </ul>
-                )}
             </section>
         );
     }
