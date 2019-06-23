@@ -280,7 +280,7 @@ body > div > article {
                 text-decoration: none;
                 opacity: 0.7;
 
-                &:hover {
+                &:hover, &.selected {
                     opacity: 1;
                     border-color: mix($colorBase, $colorWhite, 20%);
                 }
@@ -329,8 +329,7 @@ body > div > article {
             padding: $unitBase;
             text-decoration: none;
             opacity: 0.7;
-
-            &:hover {
+            &:hover, &.selected {
                 opacity: 1;
                 border-color: mix($colorBase, $colorWhite, 20%);
             }

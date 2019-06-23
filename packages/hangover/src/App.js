@@ -8,6 +8,7 @@ import Slider from './components/Slider';
 import './App.scss';
 import Achievement from './components/Achievement';
 
+import StLukes from './images/StLukes.png'
 
 class App extends Component {
   state = {
@@ -17,10 +18,14 @@ class App extends Component {
     achievements: [],
   }
   handleCauseClick = (cause) => {
+    if(this.state.selectedCause && this.state.selectedCause.causeName === cause.causeName){
+      return this.setState({selectedCause: ''})
+    }
     this.setState({selectedCause: cause}, () => this.calculateAmount())
   }
 
   handleDonationChange = (donation) => {
+    donation = donation >= 0 ? donation : 0;
     this.setState({donation}, () => this.calculateAmount())
   }
 
@@ -60,6 +65,8 @@ class App extends Component {
                         <Carousel
                             causes={causeData.causes}
                             handleCauseClick={this.handleCauseClick}
+                            selectedCause={this.state.selectedCause}
+
                         />
                     </article>
                     <article>

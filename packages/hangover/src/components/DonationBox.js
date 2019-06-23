@@ -17,6 +17,7 @@ class DonationBox extends Component {
                     onChange={this.handleChange}
                     type="number"
                     value={this.props.donation}
+                    min="0"
                 />
                 <label for="donation">$</label>
             </div>
