@@ -114,7 +114,12 @@ class App extends Component {
                             </>
                         }
                         {selectedCause && donation && distribution &&
-                            <Achievement achievements={this.state.achievements}/>
+                            <>
+                                <Achievement
+                                    achievements={this.state.achievements}
+                                />
+                                <button>Donate today</button>
+                            </>
                         }
                     </article>
                 </aside>

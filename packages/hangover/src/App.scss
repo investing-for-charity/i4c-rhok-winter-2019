@@ -6,6 +6,7 @@ $colorBase: #0F1B4D;
 $colorAction: #37D06F;
 $colorSecondary: #FFEE49;
 $colorWhite: #FFFFFF;
+$colorBlack: #000000;
 
 body {
   margin: 0;
@@ -37,15 +38,19 @@ code {
 
 button {
     outline: 0;
-    border: $unitLine solid $colorBase;
+    border: 0;
+    border-radius: $unitBase * 2;
     font-size: $unitType;
     color: $colorBase;
-    background: none;
+    background: $colorAction;
+    cursor: pointer;
+    padding: $unitBase $unitBase * 2;
+    font-weight: bold;
     &:hover {
         opacity: 0.6;
     }
     &:active {
-        background: mix($colorBase, $colorWhite, 50%);
+        background: mix($colorAction, $colorBase, 80%);
         opacity: 1;
     }
 }
@@ -156,6 +161,7 @@ body > div > article {
     margin: $unitBase * 2;
     display: flex;
     border-radius: $unitBase;
+    overflow: hidden;
     section, aside {
         width: 50%;
     }
@@ -232,13 +238,15 @@ body > div > article {
     }
 
     aside {
+        background: $colorBase;
+        color: $colorWhite;
         figure {
             max-width: 100%;
             border-radius: 0 $unitBase 0 0;
-            background-position: center center;
+            background-position: left center;
             background-size: contain;
             background-repeat: no-repeat;
-            height: $unitBase * 21 + $unitLine;
+            height: $unitBase * 15;
             margin: 0;
         }
         article {
@@ -260,6 +268,9 @@ body > div > article {
                 margin-top: $unitBase / 2;
                 font-weight: bold;
             }
+        }
+        button {
+            margin-top: $unitBase * 4;
         }
     }
 
@@ -337,13 +348,6 @@ body > div > article {
 .select-charities {
     display: flex;
     justify-content: space-between;
-    button {
-        border-radius: $unitBase * 2;
-        width: $unitBase * 6;
-        height: $unitBase * 3;
-        margin-top: $unitBase * 3;
-        cursor: pointer;
-    }
 }
 @keyframes App-logo-spin {
   from {
