@@ -83,8 +83,13 @@ class App extends Component {
                 <aside>
                     <article>
                         {selectedCause && donation &&
-                            `For ${this.state.distribution}% of $${this.state.donation}
-                            you will help ${selectedCause.charityName} providing:`
+                            <>
+                                {'For '}
+                                <b>{this.state.distribution}%</b>
+                                {' of'}
+                                {' $'}<b>${this.state.donation}</b>
+                                {' you will help '}<b>{selectedCause.charityName}</b>{' providing:'}
+                            </>
                         }
                         {selectedCause && donation && distribution &&
                             <Achievement achievements={this.state.achievements}/>
