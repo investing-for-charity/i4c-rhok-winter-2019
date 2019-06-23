@@ -5,7 +5,7 @@ import { DashboardData } from '../../api/types';
 import { cardCss } from '../Card';
 import { Button } from '@atlaskit/button/components/Button';
 import PieChart from './PieChart';
-import Captcha from './Captcha';
+import DonateMore from './DonateMore';
 import { fmtNum } from './utils';
 
 type Props = {
@@ -95,22 +95,7 @@ export default ({ dashboardData, onLogOut }: Props) => {
       <section css={sectionCss}>
         <h1 css={headingCss}>Donations received from you:</h1>
         <div css={moneyCss}>${fmtNum(donation_sum)}</div>
-        <a
-          css={css`
-            text-decoration: none;
-            margin-top: 8px;
-            color: #2684ff;
-          `}
-          href="javascript:void(0)"
-        >
-          Donate more
-        </a>
-      </section>
-      <section css={sectionCss}>
-        <dl>
-          <dd>BSB for Additional donations</dd>
-        </dl>
-        <Captcha /> 
+        <DonateMore />
       </section>
       <div
         css={css`
