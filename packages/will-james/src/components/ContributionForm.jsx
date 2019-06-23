@@ -3,11 +3,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDollarSign } from "@fortawesome/free-solid-svg-icons";
 import InputRange from "react-input-range";
 import causeData from "../data/causeInfo.json";
+import {
+  ResponsiveContainer,
+  RadialBarChart,
+  RadialBar,
+  PolarAngleAxis,
+  Legend,
+  Tooltip
+} from "recharts";
 
 import underPrivilegedYouthLogo from "../assets/underprivileged-youth.png";
 import refugeesInAustraliaLogo from "../assets/refugees-in-australia.png";
 import childSlaveryLogo from "../assets/child-slavery.png";
-import mentalHealthLogo from "../assets/mental-health.jpg";
+import mentalHealthLogo from "../assets/mental-health.png";
 import womanDomesticViolenceLogo from "../assets/women-domestic-violence.png";
 import globalPovertyLogo from "../assets/global-poverty.png";
 import youthAtRiskLogo from "../assets/youth-at-risk.png";
@@ -90,6 +98,7 @@ class ContributionForm extends Component {
     var contributionAmount = (
       fundTotalAsFloat * contributionPercentageAsDecimal
     ).toFixed(2);
+    var maxContributionAmount = (fundTotalAsFloat * 0.25).toFixed(2);
     var thousandAchieves = this.state.selectedCharityData.thousandAchieves;
 
     function numberWithCommas(number) {
@@ -99,7 +108,14 @@ class ContributionForm extends Component {
     function calculateImpact(impactPerThousand) {
       return impactPerThousand !== null
         ? Math.floor((contributionAmount / 1000) * impactPerThousand)
-        : "";
+        : null;
+    }
+
+    function calculateMaxImpact(impact1, impact2, impact3) {
+      var max = Math.max(impact1, impact2, impact3);
+      return max !== null
+        ? Math.floor((maxContributionAmount / 1000) * max)
+        : null;
     }
 
     let logo = underPrivilegedYouthLogo;
@@ -210,9 +226,12 @@ class ContributionForm extends Component {
                 <h1>{this.state.selectedCharityData.charityName}</h1>
               </div>
             </div>
+            <h3 id="prompt">Scroll down to discover your impact</h3>
           </div>
         </section>
+
         <section className="simulator">
+          <div className="up-arrow" />
           <div className="contribution-form" id="select-contribution">
             <div className="contribution">
               <div className="form-group">
@@ -279,32 +298,152 @@ class ContributionForm extends Component {
               change your annual distribution percentage to adjust
             </span>
           </div>
-          <div id="impact-intro">
-            <h3>With your contribution </h3>
-            <h1>{this.state.selectedCharityData.charityName} </h1>
-            <h3>can achieve</h3>
+          <div id="impact-container">
+            <div id="impact-intro">
+              <h3>With your contribution </h3>
+              <h1>{this.state.selectedCharityData.charityName} </h1>
+              <h3>can achieve</h3>
+            </div>
+            <div id="achieve-impact-group">
+              <div className="impact-group" id="achieve-1">
+                <div id="achieve-1-value">
+                  <ResponsiveContainer width="100%" height={200}>
+                    <RadialBarChart
+                      margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
+                      innerRadius="60%"
+                      outerRadius="90%"
+                      data={[
+                        {
+                          name: thousandAchieves.achieve1.achieveName,
+                          impact: calculateImpact(
+                            thousandAchieves.achieve1.achieveAmount
+                          ),
+                          fill: "#8dd1e1"
+                        }
+                      ]}
+                      startAngle={180}
+                      endAngle={0}
+                    >
+                      <RadialBar
+                        label={{ fill: "#3d3d3d", position: "center" }}
+                        background
+                        clockWise={true}
+                        dataKey="impact"
+                      />
+                      <PolarAngleAxis
+                        type="number"
+                        domain={[
+                          0,
+                          calculateMaxImpact(
+                            thousandAchieves.achieve1.achieveAmount,
+                            thousandAchieves.achieve2.achieveAmount,
+                            thousandAchieves.achieve3.achieveAmount
+                          )
+                        ]}
+                        dataKey={"value"}
+                        angleAxisId={0}
+                        tick={false}
+                      />
+                      <Legend verticalAlign="bottom" iconSize={0} />
+                      <Tooltip />
+                    </RadialBarChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+              <div className="impact-group" id="achieve-2">
+                <div id="achieve-2-value">
+                  <ResponsiveContainer width="100%" height={200}>
+                    <RadialBarChart
+                      margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
+                      innerRadius="60%"
+                      outerRadius="90%"
+                      data={[
+                        {
+                          name: thousandAchieves.achieve2.achieveName,
+                          impact: calculateImpact(
+                            thousandAchieves.achieve2.achieveAmount
+                          ),
+
+                          fill: "#ffc658"
+                        }
+                      ]}
+                      startAngle={180}
+                      endAngle={0}
+                    >
+                      <RadialBar
+                        label={{ fill: "#3d3d3d", position: "center" }}
+                        background
+                        clockWise={true}
+                        dataKey="impact"
+                      />
+                      <PolarAngleAxis
+                        type="number"
+                        domain={[
+                          0,
+                          calculateMaxImpact(
+                            thousandAchieves.achieve1.achieveAmount,
+                            thousandAchieves.achieve2.achieveAmount,
+                            thousandAchieves.achieve3.achieveAmount
+                          )
+                        ]}
+                        dataKey={"value"}
+                        angleAxisId={0}
+                        tick={false}
+                      />
+                      <Legend verticalAlign="bottom" iconSize={0} />
+                      <Tooltip />
+                    </RadialBarChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+              <div className="impact-group" id="achieve-3">
+                <div id="achieve-3-value">
+                  <ResponsiveContainer width="100%" height={200}>
+                    <RadialBarChart
+                      margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
+                      innerRadius="60%"
+                      outerRadius="90%"
+                      data={[
+                        {
+                          name: thousandAchieves.achieve3.achieveName,
+                          impact: calculateImpact(
+                            thousandAchieves.achieve3.achieveAmount
+                          ),
+                          fill: "#8884d8"
+                        }
+                      ]}
+                      startAngle={180}
+                      endAngle={0}
+                    >
+                      <RadialBar
+                        label={{ fill: "#3d3d3d", position: "center" }}
+                        background
+                        clockWise={true}
+                        dataKey="impact"
+                      />
+                      <PolarAngleAxis
+                        type="number"
+                        domain={[
+                          0,
+                          calculateMaxImpact(
+                            thousandAchieves.achieve1.achieveAmount,
+                            thousandAchieves.achieve2.achieveAmount,
+                            thousandAchieves.achieve3.achieveAmount
+                          )
+                        ]}
+                        dataKey={"value"}
+                        angleAxisId={0}
+                        tick={false}
+                      />
+                      <Legend verticalAlign="bottom" iconSize={0} />
+                      <Tooltip />
+                    </RadialBarChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+            </div>
+            <h3 id="post-text">{thousandAchieves.postTxt}</h3>
           </div>
-          <div id="achieve-impact-group">
-            <div className="impact-group" id="achieve-1">
-              <h1 id="achieve-1-value">
-                {calculateImpact(thousandAchieves.achieve1.achieveAmount)}
-              </h1>
-              <h3> {thousandAchieves.achieve1.achieveName}</h3>
-            </div>
-            <div className="impact-group" id="achieve-2">
-              <h1 id="achieve-2-value">
-                {calculateImpact(thousandAchieves.achieve2.achieveAmount)}
-              </h1>
-              <h3> {thousandAchieves.achieve2.achieveName}</h3>
-            </div>
-            <div className="impact-group" id="achieve-3">
-              <h1 id="achieve-3-value">
-                {calculateImpact(thousandAchieves.achieve3.achieveAmount)}
-              </h1>
-              <h3> {thousandAchieves.achieve3.achieveName}</h3>
-            </div>
-          </div>
-          <h3 id="post-text">{thousandAchieves.postTxt}</h3>
         </section>
       </div>
     );
