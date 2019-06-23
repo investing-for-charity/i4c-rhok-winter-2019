@@ -38,15 +38,12 @@ class Carousel extends Component {
             <>
                 <div class="select-charities">
                     <h3><span>2</span>Pick your Cause</h3>
-                    <button onClick={this.handleClick}>
-                        {this.state.showAll ? 'See All' : 'List'}
-                    </button>
                 </div>
                 <div className={this.state.showAll ? 'charity-list' : ''}>
                     <ul className={this.state.showAll ? '' : 'tiles'}>
                         {Object.values(causes).map(cause => {
                             return(
-                                <SausageLink 
+                                <SausageLink
                                     key={cause.causeName}
                                     cause={cause}
                                     handleCauseClick={this.props.handleCauseClick}
