@@ -141,7 +141,16 @@ input {
         }
     }
 }
-
+body > div > article {
+    h1 {
+        margin-bottom: $unitBase;
+        text-align: center;
+        + p {
+            font-weight: bold;
+            text-align: center;
+        }
+    }
+}
 .calculator {
     background: $colorWhite;
     margin: $unitBase * 2;
@@ -152,12 +161,6 @@ input {
     }
     section {
         border-right: 1px solid mix($colorAction, $colorWhite, 20%);
-    }
-    h1 {
-        margin-bottom: $unitBase;
-        + p {
-            font-weight: bold;
-        }
     }
     h3 {
         display: flex;
