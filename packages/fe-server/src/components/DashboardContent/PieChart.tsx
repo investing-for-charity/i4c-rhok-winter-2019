@@ -46,20 +46,24 @@ export default ({ dashboardData: { charities, annual_distribution_percent, fund_
         colorScale="qualitative"
         innerRadius={100}
         labelComponent={<CustomLabel />}
-        data={charities.map(charity => ({
-          x: charity.cause,
-          y: charity.percent,
-          label: `${charity.percent} %`,
-          amount: fmtNum(getAmountPerCharity(charity.percent)),
-        }))}
+        data={charities
+          .filter(x => x.percent > 0)
+          .map(charity => ({
+            x: charity.cause,
+            y: charity.percent,
+            label: `${charity.percent} %`,
+            amount: fmtNum(getAmountPerCharity(charity.percent)),
+          }))}
       />
       <VictoryLegend
-        style={{ labels: { fontSize: 20 } }}
+        style={{ labels: { fontSize: 24 } }}
         colorScale="qualitative"
         x={50}
-        data={charities.map(charity => ({
-          name: charity.cause,
-        }))}
+        data={charities
+          .filter(x => x.percent > 0)
+          .map(charity => ({
+            name: charity.cause,
+          }))}
       />
     </Fragment>
   );

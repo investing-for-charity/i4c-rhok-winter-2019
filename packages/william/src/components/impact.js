@@ -97,6 +97,7 @@ export class Impact extends Component {
                                     getStreetworkImpact(this.props.donationValue)
                                 }
                             </ul>
+                            <input className="c-impact__account-button" type="submit" value="Make an Account" />
                         </div>
                     </>
                 }

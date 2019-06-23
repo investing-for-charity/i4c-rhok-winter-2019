@@ -6,7 +6,7 @@ export const cardCss = css`
   max-width: 700px;
   background: #fff;
   border-radius: 3px;
-  padding: 32px;
+  padding: 24px;
   margin: auto auto 32px auto;
 
   @media (min-width: 420px) {
