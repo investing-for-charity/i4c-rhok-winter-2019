@@ -1,4 +1,5 @@
 import React from 'react';
+import Spinner from '@atlaskit/spinner';
 import ReCAPTCHA from 'react-google-recaptcha';
 
 const TEST_SITE_KEY = '6LfxNKoUAAAAAKiAptSHXNYktvQyd1olXzoS3Ibt';
@@ -52,7 +53,7 @@ export default class Captcha extends React.Component<Props, State> {
     const { value, callback, load, expired } = this.state;
     return (
       <div>
-        {load && (
+        {load ? (
           <ReCAPTCHA
             theme="light"
             ref={this._reCaptchaRef}
@@ -60,6 +61,8 @@ export default class Captcha extends React.Component<Props, State> {
             onChange={this.handleChange}
             asyncScriptOnLoad={this.asyncScriptOnLoad}
           />
+        ) : (
+          <Spinner size="large" />
         )}
       </div>
     );

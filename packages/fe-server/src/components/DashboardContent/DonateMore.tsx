@@ -21,14 +21,12 @@ export default () => {
       >
         Donate more:
       </span>
-      <Captcha onCaptchaSuccess={onCaptchaSuccess} />
-      {showData && (
+      {showData ? (
         <table
           css={css`
             color: #505f79;
             border-spacing: 16px;
             margin-left: -16px;
-            margin-top: 16px;
 
             td:first-of-type {
               font-weight: bold;
@@ -54,6 +52,8 @@ export default () => {
             </tr>
           </tbody>
         </table>
+      ) : (
+        <Captcha onCaptchaSuccess={onCaptchaSuccess} />
       )}
     </Fragment>
   );
