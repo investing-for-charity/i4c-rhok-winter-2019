@@ -21,12 +21,11 @@ class App extends Component {
   }
 
   handleDonationChange = (donation) => {
-    this.setState({donation}, this.calculateAmount())
+    this.setState({donation}, () => this.calculateAmount())
   }
 
   handleDistributionChange = (distribution) => {
-    this.setState({distribution})
-    this.calculateAmount()
+    this.setState({distribution}, () => this.calculateAmount())
   }
 
   calculateAmount = () => {
@@ -34,7 +33,7 @@ class App extends Component {
       const {donation, distribution, selectedCause} = this.state;
       const achievements = Object.values(selectedCause.thousandAchieves).map((achieve) => {
         const {achieveName} = achieve;
-        const amount = Math.ceil(donation / 1000 * achieve.achieveAmount * distribution / 100);
+        const amount = parseFloat(donation / 1000 * achieve.achieveAmount * distribution / 100).toFixed(1);
         return {achieveName, amount}
       })
       this.setState({achievements});
@@ -53,12 +52,13 @@ class App extends Component {
                   handleDonationChange={this.handleDonationChange}/>
             </section>
             <section>
-                <h3><span>2</span>Pick your Charity</h3>
                 <Carousel
                     causes={causeData.causes}
                     handleCauseClick={this.handleCauseClick}
                 />
-                <div>{selectedCause && selectedCause.charityName}</div>
+                {selectedCause &&
+                <div>Selected Charity: {selectedCause.charityName}</div>
+                }
             </section>
             <section>
                 <h3><span>3</span>Decide how much you invest in that cause</h3>

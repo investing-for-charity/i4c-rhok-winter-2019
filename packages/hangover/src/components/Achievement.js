@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 
 class Achievement extends Component {
-    constructor(props) {
-        super(props);
-    }
+    
     render() { 
         const {achievements} = this.props;
         console.log(achievements)
