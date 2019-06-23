@@ -68,9 +68,6 @@ class App extends Component {
                             selectedCause={this.state.selectedCause}
 
                         />
-                        {selectedCause &&
-                        <div>Selected Charity: {selectedCause.charityName}</div>
-                        }
                     </article>
                     <article>
                         <h3>
@@ -84,8 +81,13 @@ class App extends Component {
                     </article>
                 </section>
                 <aside>
-                    <Achievement achievements={this.state.achievements}/>
-                    <img src={selectedCause && selectedCause.imageLink} alt=''/>
+                    <article>
+                        {selectedCause &&
+                            `For ${this.state.distribution}% of $${this.state.donation}
+                            you will help ${selectedCause.charityName} providing:`
+                        }
+                        <Achievement achievements={this.state.achievements}/>
+                    </article>
                 </aside>
             </main>
         </>

@@ -144,8 +144,9 @@ input {
 
 .calculator {
     background: $colorWhite;
-    margin: 0;
+    margin: $unitBase * 2;
     display: flex;
+    border-radius: $unitBase;
     section, aside {
         width: 50%;
     }
@@ -227,6 +228,10 @@ input {
     }
 
     aside {
+        article {
+            position: sticky;
+            top: $unitBase;
+        }
         ul {
             list-style: none;
         }
