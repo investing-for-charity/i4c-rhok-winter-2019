@@ -237,6 +237,7 @@ body > div > article {
             border-radius: 0 $unitBase 0 0;
             background-position: center center;
             background-size: contain;
+            background-repeat: no-repeat;
             height: $unitBase * 21 + $unitLine;
             margin: 0;
         }
@@ -259,6 +260,14 @@ body > div > article {
                 margin-top: $unitBase / 2;
                 font-weight: bold;
             }
+        }
+    }
+
+    @media screen and (max-width: $unitBase * 60) {
+        margin: $unitBase $unitBase / 3;
+        display: block;
+        section, aside {
+            width: 100%;
         }
     }
 }
@@ -304,7 +313,6 @@ body > div > article {
                 position: relative;
                 &.selected {
                     border-color: $colorAction;
-                    font-weight: bold;
                     opacity: 1;
                     &::after {
                         content: url('./tickInverted.svg');
@@ -353,11 +361,11 @@ body > div > article {
     height: auto;
     padding-left: 0;
     li {
-        width: 45%;
+        width: 50%;
         display: block;
         padding: 0 $unitBase / 2;
-        white-space: nowrap;
         list-style: none;
+        box-sizing: border-box;
         span {
             border: $unitLine solid transparent;
             border-radius: $unitBase;
@@ -373,7 +381,6 @@ body > div > article {
             }
             &.selected {
                 border-color: $colorAction;
-                font-weight: bold;
                 opacity: 1;
                 &::after {
                     content: url('./tickInverted.svg');
@@ -391,5 +398,9 @@ body > div > article {
                 }
             }
         }
+    }
+
+    @media screen and (max-width: $unitBase * 30) {
+        li {width: 100%;}
     }
 }
