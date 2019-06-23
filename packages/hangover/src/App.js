@@ -43,8 +43,10 @@ class App extends Component {
     const {selectedCause} = this.state
     return (
         <main className="calculator">
-            <h1>Charity impact simulator</h1>
-            <h2>Invest in changing lifes</h2>
+            <section>
+                <h1>Charity impact simulator</h1>
+                <p>Invest in changing lifes</p>
+            </section>
             <section>
                 <h3><span>1</span>Choose a donation amount</h3>
                 <DonationBox
