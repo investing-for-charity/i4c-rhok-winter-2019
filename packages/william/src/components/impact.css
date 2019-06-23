@@ -1,7 +1,50 @@
 .c-impact {
   opacity: 0.2;
+  font-size: 1.5em;
 }
 
 .c-impact--focus {
   opacity: 1;
+}
+
+.c-impact__item {
+  font-size: 1em;
+}
+
+/* .c-impact__item-break {
+  width: 100%;
+  border-bottom: 1px solid white;
+  font-size: 0.8em;
+} */
+
+.c-impact__item-break {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid dimgray;
+  line-height: 0.1em;
+  margin: 1em 0;
+  font-size: 0.8em;
+  color: dimgray;
+}
+
+.c-impact__item-break span {
+  background: black;
+  padding: 0 10px;
+}
+
+.c-impact__item:last-of-type .c-impact__item-break {
+  display: none;
+}
+
+/* .c-impact__item:last-of-type:after {
+  content: "";
+  border-bottom: 0;
+} */
+
+.c-impact__image {
+  max-width: 60px;
+}
+
+.c-impact__list {
+  padding-top: 2em;
 }

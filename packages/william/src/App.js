@@ -17,7 +17,9 @@ export class App extends Component {
       donationValue: '',
       causeFocus: false,
       impactFocus: false,
-      cause: ''
+      cause: false,
+      stfrancis: false,
+      streetwork: false
     };
 
     // this.handleChangeDonation = this.handleChangeDonation.bind(this);
@@ -32,11 +34,22 @@ export class App extends Component {
     });
   }
 
-  handleChangeCause = () => {
-    this.setState({
+  handleChangeStreetwork = (event) => {
+    event.preventDefault();
+    this.setState(prevState => ({
       cause: true,
       impactFocus: true,
-    });
+      streetwork: !prevState.streetwork
+    }));
+  }
+
+  handleChangeStfrancis = (event) => {
+    event.preventDefault();
+    this.setState(prevState => ({
+      cause: true,
+      impactFocus: true,
+      stfrancis: !prevState.stfrancis
+    }));
   }
 
   handleSubmit = (event) => {
@@ -73,7 +86,7 @@ export class App extends Component {
                       {
                         this.state.impactFocus &&
                         <div className="g-flex__item">
-                          <Cause charitySelected={this.state.cause} focus={this.state.causeFocus} handleChange={this.handleChangeCause} />
+                          <Cause stfrancis={this.state.stfrancis} streetwork={this.state.streetwork} focus={this.state.causeFocus} handleChangeStreetwork={this.handleChangeStreetwork} handleChangeStfrancis={this.handleChangeStfrancis} />
                         </div>
                       }
                     </div>
@@ -90,14 +103,14 @@ export class App extends Component {
                       this.state.causeFocus && this.state.impactFocus === false &&
                       <div className="g-flex__item g-flex__container g-flex__container--column c-calculator__causes">
                         <div className="g-flex__item">
-                          <Cause charitySelected={this.state.cause} focus={this.state.causeFocus} handleChange={this.handleChangeCause} />
+                          <Cause stfrancis={this.state.stfrancis} streetwork={this.state.streetwork} focus={this.state.causeFocus} handleChangeStreetwork={this.handleChangeStreetwork} handleChangeStfrancis={this.handleChangeStfrancis} />
                         </div>
                       </div>
                     }
                     {
                       this.state.impactFocus &&
                       <div className="g-flex__item g-flex__container g-flex__container--column c-calculator__causes">
-                        <Impact focus={this.state.impactFocus} impact={this.state.impact} />
+                        <Impact causeSet={this.state.stfrancis || this.state.streetwork} focus={this.state.impactFocus} donationValue={this.state.donationValue} stfrancis={this.state.stfrancis} streetwork={this.state.streetwork} />
                       </div>
                     }
                   </div>

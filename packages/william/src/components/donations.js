@@ -5,7 +5,7 @@ import './donations.css';
 
 export class Donations extends Component {
     render() {
-        const containerClasses = this.props.focus ? 'c-donation--unfocus' : '';
+        const containerClasses = this.props.focus ? 'c-donation--selected' : '';
 
         return (
             <div className={`c-donations g-padding-left--2 ${containerClasses}`}>
