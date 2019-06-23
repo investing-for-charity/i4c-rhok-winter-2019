@@ -61,7 +61,7 @@ class App extends Component {
     }
   }
   render() {
-    const {selectedCause} = this.state
+    const {selectedCause, distribution, donation} = this.state
     return (
         <>
             <article>
@@ -98,12 +98,16 @@ class App extends Component {
                 </section>
                 <aside>
                     <article>
-                        {selectedCause &&
+                        {selectedCause && donation &&
                             `For ${this.state.distribution}% of $${this.state.donation}
                             you will help ${selectedCause.charityName} providing:`
                         }
-                        <Achievement achievements={this.state.achievements}/>
-                        <img src={this.state.img} alt="" />
+                        {selectedCause && donation && distribution &&
+                            <>
+                              <Achievement achievements={this.state.achievements}/>
+                              <img src={this.state.img} alt="" />
+                            </>
+                        }
                     </article>
                 </aside>
             </main>

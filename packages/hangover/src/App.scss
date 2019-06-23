@@ -141,7 +141,16 @@ input {
         }
     }
 }
-
+body > div > article {
+    h1 {
+        margin-bottom: $unitBase;
+        text-align: center;
+        + p {
+            font-weight: bold;
+            text-align: center;
+        }
+    }
+}
 .calculator {
     background: $colorWhite;
     margin: $unitBase * 2;
@@ -152,12 +161,6 @@ input {
     }
     section {
         border-right: 1px solid mix($colorAction, $colorWhite, 20%);
-    }
-    h1 {
-        margin-bottom: $unitBase;
-        + p {
-            font-weight: bold;
-        }
     }
     h3 {
         display: flex;
@@ -228,12 +231,25 @@ input {
     }
 
     aside {
+        padding-left: $unitBase * 4;
+        padding-top: $unitBase * 2;
         article {
             position: sticky;
             top: $unitBase;
         }
         ul {
             list-style: none;
+            padding-left: 0;
+        }
+        li {
+            h2 {
+                margin-bottom: $unitBase / 2;
+                color: $colorAction;
+            }
+            p {
+                margin-top: $unitBase / 2;
+                font-weight: bold;
+            }
         }
     }
 }
@@ -323,12 +339,32 @@ input {
             border: $unitLine solid transparent;
             border-radius: $unitBase;
             display: inline-block;
+            position: relative;
             padding: $unitBase;
             text-decoration: none;
             opacity: 0.7;
-            &:hover, &.selected {
+            &:hover {
                 opacity: 1;
                 border-color: mix($colorBase, $colorWhite, 20%);
+            }
+            &.selected {
+                border-color: $colorAction;
+                font-weight: bold;
+                opacity: 1;
+                &::after {
+                    content: url('./tickInverted.svg');
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: $unitBase * 4;
+                    background: $colorAction;
+                    color: $colorWhite;
+                    position: absolute;
+                    right: $unitBase * -1;
+                    top: $unitBase * -1;
+                    height: $unitBase * 2;
+                    width: $unitBase * 2;
+                }
             }
         }
     }
