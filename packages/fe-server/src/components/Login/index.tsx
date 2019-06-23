@@ -40,9 +40,17 @@ export default ({ onSubmit }: Props) => {
               {({ fieldProps }) => <TextField type="password" {...fieldProps} />}
             </Field>
             <FormFooter>
-              <Button type="submit" appearance="primary" isLoading={submitting}>
-                Submit
-              </Button>
+              <div
+                css={css`
+                  > button {
+                    background: #36b37e;
+                  }
+                `}
+              >
+                <Button type="submit" appearance="primary" isLoading={submitting}>
+                  Submit
+                </Button>
+              </div>
             </FormFooter>
           </form>
         )}

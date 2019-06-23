@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
+import { SuccessProgressBar } from '@atlaskit/progress-bar';
 import { DashboardData } from '../../api/types';
 import { cardCss } from '../Card';
 import { Button } from '@atlaskit/button/components/Button';
@@ -12,9 +13,16 @@ type Props = {
 };
 
 const moneyCss = css`
-  font-weight: bold;
   color: #36b37e;
   font-size: 32px;
+`;
+
+const headingCss = css`
+  margin: 0;
+  font-size: 12px;
+  color: #505f79;
+  margin-bottom: 8px;
+  text-transform: uppercase;
 `;
 
 const sectionCss = css`
@@ -56,35 +64,47 @@ export default ({ dashboardData, onLogOut }: Props) => {
             margin-bottom: 16px;
           `}
         >
-          Welcome {first_name}!
+          Welcome {first_name}
         </h1>
+
         <div>
-          Donated this year:
-          <div css={moneyCss}>${fmtNum(donation_sum)}</div>
+          <h1 css={headingCss}>Your charity fund balance now:</h1>
+          <div css={moneyCss}>${fmtNum(fund_value)}</div>
         </div>
       </section>
+
       <section css={sectionCss}>
-        <dl>
-          <dd>Your fund value is</dd>
-          <dt css={moneyCss}>${fmtNum(fund_value)}</dt>
-        </dl>
-      </section>
-      <section css={sectionCss}>
-        <dl>
-          <dd>Your annual distribution is</dd>
-          <dt css={moneyCss}>{fmtNum(annual_distribution_percent)}%</dt>
-        </dl>
-      </section>
-      <section css={sectionCss}>
-        <h1
+        <h1 css={headingCss}>This year you will distribute {fmtNum(annual_distribution_percent)} %</h1>
+        <div
           css={css`
-            margin: 0;
-            font-size: 20px;
+            margin: 16px 0;
+
+            span {
+              background: #36b37e;
+            }
           `}
         >
-          Charity allocation percentage
-        </h1>
+          <SuccessProgressBar value={annual_distribution_percent / 100} />
+        </div>
+        <div css={moneyCss}>${fmtNum((annual_distribution_percent / 100) * fund_value)}</div>
+      </section>
+      <section css={sectionCss}>
+        <h1 css={headingCss}>Charity allocation percentage</h1>
         <PieChart dashboardData={dashboardData} />
+      </section>
+      <section css={sectionCss}>
+        <h1 css={headingCss}>Donations received from you:</h1>
+        <div css={moneyCss}>${fmtNum(donation_sum)}</div>
+        <a
+          css={css`
+            text-decoration: none;
+            margin-top: 8px;
+            color: #2684ff;
+          `}
+          href="javascript:void(0)"
+        >
+          Donate more
+        </a>
       </section>
       <div
         css={css`
@@ -92,12 +112,12 @@ export default ({ dashboardData, onLogOut }: Props) => {
           padding-top: 8px;
           padding-bottom: 8px;
 
-          background: #eee;
+          background: #fff;
 
           > button {
-            background: #eee;
+            background: #fff;
             width: 100%;
-            
+
             > span {
               width: 100%;
             }

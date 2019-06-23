@@ -54,7 +54,7 @@ export default ({ dashboardData: { charities, annual_distribution_percent, fund_
         }))}
       />
       <VictoryLegend
-        style={{ labels: { fontSize: 20 } }}
+        style={{ labels: { fontSize: 24 } }}
         colorScale="qualitative"
         x={50}
         data={charities.map(charity => ({
