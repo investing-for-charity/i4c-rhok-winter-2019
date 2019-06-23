@@ -5,6 +5,7 @@ import { DashboardData } from '../../api/types';
 import { cardCss } from '../Card';
 import { Button } from '@atlaskit/button/components/Button';
 import PieChart from './PieChart';
+import Captcha from './Captcha';
 import { fmtNum } from './utils';
 
 type Props = {
@@ -32,7 +33,6 @@ const sectionCss = css`
 
   @media (min-width: 420px) {
     width: 50%;
-    flex-direction: row;
   }
 `;
 
@@ -105,6 +105,12 @@ export default ({ dashboardData, onLogOut }: Props) => {
         >
           Donate more
         </a>
+      </section>
+      <section css={sectionCss}>
+        <dl>
+          <dd>BSB for Additional donations</dd>
+        </dl>
+        <Captcha /> 
       </section>
       <div
         css={css`
