@@ -88,7 +88,7 @@ input {
             height: $unitBase * 2;
             width: $unitBase * 2;
             border-radius: $unitBase * 2;
-            background: $colorAction;
+            background: $colorWhite;
             cursor: pointer;
             margin-top: $unitBase * -1;
         }
@@ -97,7 +97,7 @@ input {
             height: $unitBase * 2;
             width: $unitBase * 2;
             border-radius: $unitBase * 2;
-            background: $colorAction;
+            background: $colorWhite;
             cursor: pointer;
             margin-top: $unitBase * -3;
         }
@@ -106,7 +106,7 @@ input {
             height: $unitBase * 2;
             width: $unitBase * 2;
             border-radius: $unitBase * 2;
-            background: $colorAction;
+            background: $colorWhite;
             cursor: pointer;
             margin-top: $unitBase / -3;
         }
@@ -128,13 +128,30 @@ input {
             background: $colorBase;
             border-radius: $unitBase;
         }
+        &:focus {
+            &::-webkit-slider-thumb {
+                background: $colorAction;
+            }
+            &::-moz-range-thumb {
+                background: $colorAction;
+            }
+            &::-ms-thumb {
+                background: $colorAction;
+            }
+        }
     }
 }
 
 .calculator {
     background: $colorWhite;
-    max-width: $unitBase * 50;
-    margin: $unitBase * 2 auto;
+    margin: 0;
+    display: flex;
+    section, aside {
+        width: 50%;
+    }
+    section {
+        border-right: 1px solid mix($colorAction, $colorWhite, 20%);
+    }
     h1 {
         margin-bottom: $unitBase;
         + p {
@@ -143,7 +160,6 @@ input {
     }
     h3 {
         display: flex;
-        align-items: center;
         span {
             box-sizing: border-box;
             display: inline-flex;
@@ -157,9 +173,10 @@ input {
             color: $colorWhite;
             border-radius: $unitBase * 20;
             margin-right: $unitBase;
+            margin-top: $unitBase / 2;
         }
     }
-    section {
+    article {
         border-top: 1px solid mix($colorAction, $colorWhite, 20%);
         padding: $unitBase * 3 $unitBase * 2 $unitBase * 6;
         &:first-of-type {
@@ -208,10 +225,17 @@ input {
             margin-left: $unitBase * -2;
         }
     }
+
+    aside {
+        ul {
+            list-style: none;
+        }
+    }
 }
 
 .charity-list {
     position: relative;
+    overflow: hidden;
     &:before, &:after {
         content: '';
         height: calc(100% - 2em);

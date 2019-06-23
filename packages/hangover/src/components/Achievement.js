@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
 
 class Achievement extends Component {
-    
-    render() { 
+
+    render() {
         const {achievements} = this.props;
         console.log(achievements)
         if(!achievements){
             return null
         }
-        return ( 
-            achievements.map(achievement => {
+        return (
+            <ul>
+            {achievements.map(achievement => {
                 return(
-                <div key={achievement.achieveName}>
-                    <span>{achievement.achieveName}</span>
-                    <span>{achievement.amount}</span>
-                </div>
+                <li key={achievement.achieveName}>
+                    <h2>{achievement.amount}</h2>
+                    <p>{achievement.achieveName}</p>
+                </li>
                 )
-            })
+            })}
+            </ul>
         );
     }
 }
- 
+
 export default Achievement;

@@ -42,36 +42,45 @@ class App extends Component {
   render() {
     const {selectedCause} = this.state
     return (
-        <main className="calculator">
-            <section>
+        <>
+            <article>
                 <h1>Charity impact simulator</h1>
                 <p>Invest in changing lifes</p>
-            </section>
-            <section>
-                <h3><span>1</span>Choose a donation amount</h3>
-                <DonationBox
-                  donation={this.state.donation}
-                  handleDonationChange={this.handleDonationChange}/>
-            </section>
-            <section>
-                <Carousel
-                    causes={causeData.causes}
-                    handleCauseClick={this.handleCauseClick}
-                />
-                {selectedCause &&
-                <div>Selected Charity: {selectedCause.charityName}</div>
-                }
-            </section>
-            <section>
-                <h3><span>3</span>Decide how much you invest in that cause</h3>
-                <Slider
-                    handleDistributionChange={this.handleDistributionChange}
-                    distribution={this.state.distribution}
-                />
-            <Achievement achievements={this.state.achievements}/>
-
-            </section>
-        </main>
+            </article>
+            <main className="calculator">
+                <section>
+                    <article>
+                        <h3><span>1</span>Choose a donation amount</h3>
+                        <DonationBox
+                          donation={this.state.donation}
+                          handleDonationChange={this.handleDonationChange}
+                        />
+                    </article>
+                    <article>
+                        <Carousel
+                            causes={causeData.causes}
+                            handleCauseClick={this.handleCauseClick}
+                        />
+                        {selectedCause &&
+                        <div>Selected Charity: {selectedCause.charityName}</div>
+                        }
+                    </article>
+                    <article>
+                        <h3>
+                            <span>3</span>
+                            Decide how much you invest in that cause
+                        </h3>
+                        <Slider
+                            handleDistributionChange={this.handleDistributionChange}
+                            distribution={this.state.distribution}
+                        />
+                    </article>
+                </section>
+                <aside>
+                    <Achievement achievements={this.state.achievements}/>
+                </aside>
+            </main>
+        </>
     );
   }
 }
