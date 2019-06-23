@@ -17,6 +17,9 @@ class App extends Component {
     achievements: [],
   }
   handleCauseClick = (cause) => {
+    if(this.state.selectedCause && this.state.selectedCause.causeName === cause.causeName){
+      return this.setState({selectedCause: ''})
+    }
     this.setState({selectedCause: cause}, () => this.calculateAmount())
   }
 

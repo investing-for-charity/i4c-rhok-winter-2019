@@ -39,6 +39,20 @@ code {
     monospace;
 }
 
+button {
+    outline: 0;
+    border: $unitLine solid $colorBase;
+    font-size: $unitType;
+    background: none;
+    &:hover {
+        opacity: 0.6;
+    }
+    &:active {
+        background: $colorAction;
+        opacity: 1;
+    }
+}
+
 .slider {
     width: 100%;
     max-width: $unitBase * 30;
@@ -286,7 +300,7 @@ input {
             padding: $unitBase;
             text-decoration: none;
             opacity: 0.7;
-            &:hover, .selected {
+            &:hover, &.selected {
                 opacity: 1;
                 border-color: mix($colorBase, $colorWhite, 20%);
             }

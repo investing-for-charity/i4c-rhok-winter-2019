@@ -7,9 +7,6 @@ class SausageLink extends Component {
         handleClick = () => {
             const {cause, handleCauseClick} = this.props
             handleCauseClick(cause)
-            this.setState(({selected}) => {
-                return {selected: !selected}
-            })
         }
     render() {
         const {cause} = this.props
@@ -17,7 +14,7 @@ class SausageLink extends Component {
             <li>
                 <span
                     onClick={this.handleClick}
-                    // className={this.state.selected ? 'selected' : ''}
+                    className={this.props.selectedCause == cause ? 'selected' : ''}
                 >
                     {cause.causeName}
                 </span>
@@ -38,26 +35,29 @@ class Carousel extends Component {
     render() {
         const {causes} = this.props
         return (
-            <section>
+            <>
                 <div class="select-charities">
                     <h3><span>2</span>Pick your Cause</h3>
-                    <button onClick={this.handleClick}>See all</button>
+                    <button onClick={this.handleClick}>
+                        {this.state.showAll ? 'See All' : 'List'}
+                    </button>
                 </div>
-                <div className={this.state.showAll ? '' : 'charity-list'}>
-                    <ul className={this.state.showAll ? 'tiles' : ''}>
+                <div className={this.state.showAll ? 'charity-list' : ''}>
+                    <ul className={this.state.showAll ? '' : 'tiles'}>
                         {Object.values(causes).map(cause => {
                             return(
-                                <SausageLink key={cause.causeName}
-                                cause={cause}
-                                handleCauseClick={this.props.handleCauseClick}
-                                selectedCause={this.props.selectedCause}
+                                <SausageLink 
+                                    key={cause.causeName}
+                                    cause={cause}
+                                    handleCauseClick={this.props.handleCauseClick}
+                                    selectedCause={this.props.selectedCause}
                                 />
                                 );
                             })
                     }
                     </ul>
                 </div>
-            </section>
+            </>
         );
     }
 }
