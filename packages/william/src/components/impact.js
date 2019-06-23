@@ -53,7 +53,7 @@ const getStreetworkImpact = (donationAmount) => {
                 !!mentorFor6MonthsImpact &&
                 <li className="g-flex__item g-flex__container g-flex__container--align-items-center c-impact__item">
                     <img className="g-flex__item c-impact__image" src={require('../images/mentor.png')} alt="Food" />
-                    <span className="g-flex__item g-padding-left--1">{mentorFor6MonthsImpact} mentor for 6 months </span>
+                    <span className="g-flex__item g-padding-left--1">{mentorFor6MonthsImpact} mentors for 6 months </span>
                     <div className="c-impact__item-break"><span>or</span></div>
                 </li>
             }

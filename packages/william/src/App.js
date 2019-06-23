@@ -115,7 +115,7 @@ export class App extends Component {
                     }
                   </div>
                 </div>
-                <input type="submit" value="Make Donation" />
+                <input className="u-visually-hidden" type="submit" value="Make Donation" />
               </form>
             </div>
           </div>
