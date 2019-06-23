@@ -9,15 +9,19 @@ class DonationBox extends Component {
         this.props.handleDonationChange(event.target.value)
     }
 
-    render() { 
-        return ( 
-            <input 
-                type="number" 
-                onChange={this.handleChange} 
-                value={this.props.donation}
-            />
+    render() {
+        return (
+            <div className="donation">
+                <input
+                    id="donation"
+                    onChange={this.handleChange}
+                    type="number"
+                    value={this.props.donation}
+                />
+                <label for="donation">$</label>
+            </div>
          );
     }
 }
- 
+
 export default DonationBox;

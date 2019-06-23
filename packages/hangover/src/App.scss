@@ -21,7 +21,7 @@ body {
 }
 h1, h2, h3 {
     margin-top: $unitBase * 3;
-    margin-bottom: $unitBase;
+    margin-bottom: $unitBase * 2;
 }
 
 h1 {
@@ -42,7 +42,7 @@ code {
 .slider {
     width: 100%;
     max-width: $unitBase * 30;
-    
+
     label {
         box-sizing: border-box;
         // padding: 0 $unitBase * 1.5;
@@ -68,7 +68,54 @@ input {
     }
     &[type="range"] {
         appearance: none;
-        background: $colorAction;
+        background: $colorWhite;
+        height: $unitBase * 4;
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            border: $unitLine solid $colorBase;
+            height: $unitBase * 2;
+            width: $unitBase * 2;
+            border-radius: $unitBase * 2;
+            background: $colorAction;
+            cursor: pointer;
+            margin-top: $unitBase * -1;
+        }
+        &::-moz-range-thumb {
+            border: $unitLine solid $colorBase;
+            height: $unitBase * 2;
+            width: $unitBase * 2;
+            border-radius: $unitBase * 2;
+            background: $colorAction;
+            cursor: pointer;
+            margin-top: $unitBase * -3;
+        }
+        &::-ms-thumb {
+            border: $unitLine solid $colorBase;
+            height: $unitBase * 2;
+            width: $unitBase * 2;
+            border-radius: $unitBase * 2;
+            background: $colorAction;
+            cursor: pointer;
+            margin-top: $unitBase / -3;
+        }
+        &::-webkit-slider-runnable-track {
+            width: 100%;
+            height: $unitLine;
+            background: $colorBase;
+            border-radius: $unitBase;
+        }
+        &::-moz-range-track {
+            width: 100%;
+            height: $unitLine;
+            background: $colorBase;
+            border-radius: $unitBase;
+        }
+        &::-ms-track {
+            width: 100%;
+            height: $unitLine;
+            background: $colorBase;
+            border-radius: $unitBase;
+        }
     }
 }
 
@@ -106,6 +153,44 @@ input {
         padding: $unitBase * 2;
         &:first-of-type {
             border-top: 0;
+        }
+    }
+    .donation {
+        position: relative;
+        label {
+            display: block;
+            border-right: $unitLine solid mix($colorBase, $colorWhite, 20%);
+            position: absolute;
+            padding: $unitBase;
+            top: $unitBase / 3;
+            left: $unitLine;
+            border-radius: $unitBase * 2 0 0 $unitBase * 2;
+            color: mix($colorBase, $colorWhite, 60%);
+            font-weight: bold;
+            line-height: $unitBase * 1.5;
+        }
+        input {
+            padding-left: $unitBase * 4;
+            &:focus + label {
+                border-color: $colorAction;
+                background-color: $colorAction;
+                color: $colorWhite;
+            }
+        }
+    }
+    .slider {
+        position: relative;
+        width: 100%;
+        span {
+            background: $colorBase;
+            padding: $unitBase / 3 $unitBase / 2;
+            color: $colorWhite;
+            border-radius: $unitBase / 2;
+            position: absolute;
+            top: $unitBase * -1.5;
+            width: $unitBase * 4;
+            text-align: center;
+            margin-left: $unitBase * -2;
         }
     }
 }
