@@ -69,10 +69,6 @@
         "achieve2": {
           "achieveName": "Relocations to new homes",
           "achieveAmount": 0.34
-        },
-        "achieve3": {
-          "achieveName": "",
-          "achieveAmount": null
         }
       },
       "postTxt": ""
@@ -106,11 +102,11 @@
         },
         "achieve2": {
           "achieveName": "Support after crises",
-          "achieveAmount": null
+          "achieveAmount": 1.5
         },
         "achieve3": {
           "achieveName": "Advice to get back on track",
-          "achieveAmount": null
+          "achieveAmount": 23
         }
       },
       "postTxt": ""
