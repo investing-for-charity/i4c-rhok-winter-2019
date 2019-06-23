@@ -86,12 +86,13 @@ input {
     &:not([type="submit"]) {
         font-weight: bold;
         box-sizing: border-box;
-        border: $unitLine solid mix($colorBase, $colorWhite, 20%);
+        border: $unitLine solid $colorWhite;
         padding: $unitBase $unitBase * 1.5;
         border-radius: $unitBase * 10;
         font-size: $unitType;
         width: 100%;
         max-width: $unitBase * 30;
+        background: mix($colorAction, $colorWhite, 20%);
         &:focus {
             border-color: $colorAction;
             outline: none;
@@ -99,7 +100,6 @@ input {
     }
     &[type="range"] {
         appearance: none;
-        background: mix($colorAction, $colorWhite, 20%);
         height: $unitBase * 4;
         border: 0;
         margin: $unitBase 0;
@@ -230,7 +230,7 @@ body > div > article {
             display: flex;
             align-items: center;
             justify-content: center;
-            border-right: $unitLine solid mix($colorBase, $colorWhite, 20%);
+            border-right: $unitLine solid $colorWhite;
             position: absolute;
             height: $unitBase * 4 - $unitLine * 2;
             width: $unitBase * 3;
@@ -248,6 +248,7 @@ body > div > article {
                 border-color: $colorAction;
                 background-color: $colorAction;
                 color: $colorWhite;
+                transition: all ease .2s;
             }
         }
     }
