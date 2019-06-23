@@ -246,6 +246,17 @@ input {
     }
 }
 
+.select-charities {
+    display: flex;
+    justify-content: space-between;
+    button {
+        border-radius: $unitBase * 2;
+        width: $unitBase * 6;
+        height: $unitBase * 3;
+        margin-top: $unitBase * 3;
+        cursor: pointer;
+    }
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -253,4 +264,16 @@ input {
   to {
     transform: rotate(360deg);
   }
+}
+
+.tiles {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    li {
+        display: block;
+        width: 45%;
+        height: $unitBase * 3;
+    }
 }
