@@ -3,6 +3,8 @@ import { css, jsx } from '@emotion/core';
 import { DashboardData } from '../../api/types';
 import { cardCss } from '../Card';
 import { Button } from '@atlaskit/button/components/Button';
+import PieChart from './PieChart';
+import { fmtNum } from './utils';
 
 type Props = {
   dashboardData: DashboardData;
@@ -26,12 +28,8 @@ const sectionCss = css`
   }
 `;
 
-const fmtNum = (n: number) => n.toLocaleString(undefined, { maximumFractionDigits: 2 });
-
-export default ({
-  dashboardData: { first_name, donation_sum, annual_distribution_percent, charities, fund_value },
-  onLogOut,
-}: Props) => {
+export default ({ dashboardData, onLogOut }: Props) => {
+  const { first_name, donation_sum, annual_distribution_percent, charities, fund_value } = dashboardData;
   return (
     <div
       css={css`
@@ -44,20 +42,7 @@ export default ({
         }
       `}
     >
-      <div
-        css={css`
-          position: fixed;
-          right: 24px;
-          padding: 8px;
-
-          > button {
-            background: #fff;
-          }
-        `}
-      >
-        <Button onClick={onLogOut}>Log out</Button>
-      </div>
-      <div
+      <section
         css={css`
           ${sectionCss}
           justify-content: space-between;
@@ -77,60 +62,49 @@ export default ({
           Donated this year:
           <div css={moneyCss}>${fmtNum(donation_sum)}</div>
         </div>
-      </div>
-      <div css={sectionCss}>
+      </section>
+      <section css={sectionCss}>
         <dl>
           <dd>Your fund value is</dd>
           <dt css={moneyCss}>${fmtNum(fund_value)}</dt>
         </dl>
-      </div>
-      <div css={sectionCss}>
+      </section>
+      <section css={sectionCss}>
         <dl>
           <dd>Your annual distribution is</dd>
           <dt css={moneyCss}>{fmtNum(annual_distribution_percent)}%</dt>
         </dl>
-      </div>
+      </section>
+      <section css={sectionCss}>
+        <h1
+          css={css`
+            margin: 0;
+            font-size: 20px;
+          `}
+        >
+          Charity allocation percentage
+        </h1>
+        <PieChart dashboardData={dashboardData} />
+      </section>
       <div
         css={css`
           ${sectionCss}
+          padding-top: 8px;
+          padding-bottom: 8px;
 
-          @media (min-width: 420px) {
-            flex-direction: column;
+          background: #eee;
+
+          > button {
+            background: #eee;
+            width: 100%;
+            
+            > span {
+              width: 100%;
+            }
           }
         `}
       >
-        <div>Each year, you distribute:</div>
-        <table
-          css={css`
-            margin-top: 16px;
-          `}
-        >
-          <thead
-            css={css`
-              font-size: 20px;
-              font-weight: bold;
-            `}
-          >
-            <tr>
-              <td>Cause</td>
-              <td>Distribution</td>
-              <td>Total amount</td>
-            </tr>
-          </thead>
-          <tbody>
-            {charities.map(({ cause, charity_name, percent }) => (
-              <tr key={cause}>
-                <td>
-                  {charity_name}
-                  <br />
-                  <small>{cause}</small>
-                </td>
-                <td css={moneyCss}>{fmtNum(percent)}%</td>
-                <td css={moneyCss}>${fmtNum((annual_distribution_percent / 100) * fund_value * (percent / 100))}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <Button onClick={onLogOut}>Log out</Button>
       </div>
     </div>
   );
