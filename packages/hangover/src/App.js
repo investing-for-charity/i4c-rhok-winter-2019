@@ -9,6 +9,7 @@ import './App.scss';
 import Achievement from './components/Achievement';
 
 import StLukes from './images/StLukes.png'
+import StreetWork from './images/StreetWork.png'
 
 class App extends Component {
   state = {
@@ -18,10 +19,25 @@ class App extends Component {
     achievements: [],
   }
   handleCauseClick = (cause) => {
-    if(this.state.selectedCause && this.state.selectedCause.causeName === cause.causeName){
-      return this.setState({selectedCause: ''})
+    const {selectedCause} = this.state
+    switch(cause.causeName){
+      case 'Refugees in Australia':
+        this.setState({img: StLukes});
+        break;
+      case 'Youth at Risk':
+        this.setState({img: StreetWork});
+        break;
+      break;
+      default:
+        this.setState({img: ''})
+    }
+    if(selectedCause && this.state.selectedCause.causeName === cause.causeName){
+      return this.setState({selectedCause: '', img: ''})
     }
     this.setState({selectedCause: cause}, () => this.calculateAmount())
+      if(selectedCause) {
+        
+      }
   }
 
   handleDonationChange = (donation) => {
@@ -92,7 +108,10 @@ class App extends Component {
                             </>
                         }
                         {selectedCause && donation && distribution &&
-                            <Achievement achievements={this.state.achievements}/>
+                            <>
+                              <Achievement achievements={this.state.achievements}/>
+                              <img src={this.state.img} alt="" />
+                            </>
                         }
                     </article>
                 </aside>
