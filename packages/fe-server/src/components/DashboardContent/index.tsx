@@ -4,6 +4,7 @@ import { DashboardData } from '../../api/types';
 import { cardCss } from '../Card';
 import { Button } from '@atlaskit/button/components/Button';
 import PieChart from './PieChart';
+import Captcha from './Captcha';
 import { fmtNum } from './utils';
 
 type Props = {
@@ -85,6 +86,12 @@ export default ({ dashboardData, onLogOut }: Props) => {
           Charity allocation percentage
         </h1>
         <PieChart dashboardData={dashboardData} />
+      </section>
+      <section css={sectionCss}>
+        <dl>
+          <dd>BSB for Additional donations</dd>
+        </dl>
+        <Captcha /> 
       </section>
       <div
         css={css`
