@@ -158,12 +158,16 @@ input {
     .donation {
         position: relative;
         label {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border-right: $unitLine solid mix($colorBase, $colorWhite, 20%);
             position: absolute;
-            padding: $unitBase;
-            top: $unitBase / 3;
-            left: $unitLine;
+            height: $unitBase * 4 - $unitLine * 2;
+            width: $unitBase * 3;
+            text-align: center;
+            top: $unitLine;
+            left: $unitLine / 2;
             border-radius: $unitBase * 2 0 0 $unitBase * 2;
             color: mix($colorBase, $colorWhite, 60%);
             font-weight: bold;
