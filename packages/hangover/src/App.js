@@ -36,7 +36,7 @@ class App extends Component {
     }
     this.setState({selectedCause: cause}, () => this.calculateAmount())
       if(selectedCause) {
-        
+
       }
   }
 
@@ -97,6 +97,12 @@ class App extends Component {
                     </article>
                 </section>
                 <aside>
+                    {this.state.img &&
+                        <figure
+                            alt=""
+                            style={{backgroundImage: `url(${this.state.img})`}}
+                        />
+                    }
                     <article>
                         {selectedCause && donation &&
                             <>
@@ -108,10 +114,7 @@ class App extends Component {
                             </>
                         }
                         {selectedCause && donation && distribution &&
-                            <>
-                              <Achievement achievements={this.state.achievements}/>
-                              <img src={this.state.img} alt="" />
-                            </>
+                            <Achievement achievements={this.state.achievements}/>
                         }
                     </article>
                 </aside>

@@ -164,6 +164,7 @@ body > div > article {
     }
     h3 {
         display: flex;
+        margin-top: $unitBase;
         span {
             box-sizing: border-box;
             display: inline-flex;
@@ -231,9 +232,17 @@ body > div > article {
     }
 
     aside {
-        padding-left: $unitBase * 4;
-        padding-top: $unitBase * 2;
+        figure {
+            max-width: 100%;
+            border-radius: 0 $unitBase 0 0;
+            background-position: center center;
+            background-size: contain;
+            height: $unitBase * 21 + $unitLine;
+            margin: 0;
+        }
         article {
+            padding-left: $unitBase * 4;
+            padding-top: $unitBase * 4;
             position: sticky;
             top: $unitBase;
         }
@@ -284,7 +293,6 @@ body > div > article {
             padding: 0 $unitBase / 2;
             white-space: nowrap;
             list-style: none;
-            cursor: pointer;
             span {
                 border: $unitLine solid transparent;
                 border-radius: $unitBase;
@@ -292,10 +300,26 @@ body > div > article {
                 padding: $unitBase;
                 text-decoration: none;
                 opacity: 0.7;
-
-                &:hover, &.selected {
+                cursor: pointer;
+                position: relative;
+                &.selected {
+                    border-color: $colorAction;
+                    font-weight: bold;
                     opacity: 1;
-                    border-color: mix($colorBase, $colorWhite, 20%);
+                    &::after {
+                        content: url('./tickInverted.svg');
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: $unitBase * 4;
+                        background: $colorAction;
+                        color: $colorWhite;
+                        position: absolute;
+                        right: $unitBase * -1;
+                        top: $unitBase * -1;
+                        height: $unitBase * 2;
+                        width: $unitBase * 2;
+                    }
                 }
             }
         }
@@ -334,7 +358,6 @@ body > div > article {
         padding: 0 $unitBase / 2;
         white-space: nowrap;
         list-style: none;
-        cursor: pointer;
         span {
             border: $unitLine solid transparent;
             border-radius: $unitBase;
@@ -343,6 +366,7 @@ body > div > article {
             padding: $unitBase;
             text-decoration: none;
             opacity: 0.7;
+            cursor: pointer;
             &:hover {
                 opacity: 1;
                 border-color: mix($colorBase, $colorWhite, 20%);
