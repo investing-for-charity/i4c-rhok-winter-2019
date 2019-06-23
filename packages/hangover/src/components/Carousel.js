@@ -34,10 +34,12 @@ class Carousel extends Component {
     render() {
         const {causes} = this.props
         return (
-            <section>
+            <>
                 <div class="select-charities">
                     <h3><span>2</span>Pick your Cause</h3>
-                    <button onClick={this.handleClick}>See all</button>
+                    <button onClick={this.handleClick}>
+                        {this.state.showAll ? 'See all' : 'List'}
+                    </button>
                 </div>
                 {this.state.showAll ? (
                 <div className="charity-list">
@@ -66,7 +68,7 @@ class Carousel extends Component {
                         }
                     </ul>
                 )}
-            </section>
+            </>
         );
     }
 }

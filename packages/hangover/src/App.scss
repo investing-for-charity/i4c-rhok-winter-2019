@@ -39,6 +39,20 @@ code {
     monospace;
 }
 
+button {
+    outline: 0;
+    border: $unitLine solid $colorBase;
+    font-size: $unitType;
+    background: none;
+    &:hover {
+        opacity: 0.6;
+    }
+    &:active {
+        background: $colorAction;
+        opacity: 1;
+    }
+}
+
 .slider {
     width: 100%;
     max-width: $unitBase * 30;
