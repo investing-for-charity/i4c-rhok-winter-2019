@@ -28,6 +28,10 @@
   justify-content: space-around;
 }
 
+.g-flex__container--align-items-center {
+  align-items: center;
+}
+
 .g-grid__container {
   display: grid;
   align-items: stretch;

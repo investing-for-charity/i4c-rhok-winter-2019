@@ -6,7 +6,6 @@ import './cause.css';
 export class Cause extends Component {
     render() {
         const containerClasses = this.props.focus ? 'c-cause--focus' : '';
-        const charityNotSelected = this.props.charitySelected ? 'c-cause__images--unfocused' : '';
         const charitySelected = this.props.charitySelected ? 'c-cause--selected' : '';
         return (
 
@@ -19,11 +18,26 @@ export class Cause extends Component {
                     <div className="g-flex__item g-padding-left--1">
                         <h3>Select one or more charities</h3>
                     </div>
-                    <div>
+                    <div className="g-flex__item">
                         <ul className="g-flex__container">
-                            <li className="g-flex__item"><button onClick={this.props.handleChange}><img className="c-cause__image" src={require('../images/charity1.png')} alt="Refugees in Australia" /></button></li>
-                            <li className="g-flex__item"><button onClick={this.props.handleChange}><img className={`c-cause__image ${charityNotSelected}`} src={require('../images/charity2.png')} alt="Refugees in Australia" /></button></li>
-                            <li className="g-flex__item"><button onClick={this.props.handleChange}><img className={`c-cause__image ${charityNotSelected}`} src={require('../images/charity3.png')} alt="Refugees in Australia" /></button></li>
+                            <li className="g-flex__item">
+                                <span className="c-cause__title">Refugees in Australia</span>
+                                {
+                                    this.props.stfrancis &&
+                                    <div className="c-cause__tick"></div>
+                                }
+                                <button className="g-margin-top--05 g-margin-bottom--1" onClick={this.props.handleChangeStfrancis}><img className={`c-cause__image`} src={require('../images/charity1.png')} alt="Refugees in Australia" /></button>
+                                <a href="#">Read More</a>
+                            </li>
+                            <li className="g-flex__item">
+                                <span className="c-cause__title">Youth at Risk</span>
+                                {
+                                    this.props.streetwork &&
+                                    <div className="c-cause__tick"></div>
+                                }
+                                <button className="g-margin-top--05 g-margin-bottom--1" onClick={this.props.handleChangeStreetwork}><img className={`c-cause__image`} src={require('../images/charity2.png')} alt="Refugees in Australia" /></button>
+                                <a href="#">Read More</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

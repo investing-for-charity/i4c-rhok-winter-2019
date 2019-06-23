@@ -5,13 +5,22 @@ html {
 
 a {
   color: white;
-  padding-left: 1em;
+  font-size: 0.8em;
+  /* padding-left: 1em; */
 }
 
 a:hover,
 a:focus,
 a:active {
   text-decoration: underline;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover,
+button:focus,
+button:active {
+  cursor: pointer;
 }
 
 .c-app {

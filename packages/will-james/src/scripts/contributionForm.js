@@ -2,18 +2,27 @@ import $ from "jquery";
 
 $(function() {
   $(document).ready(function() {
+    var originalInputVal = "";
+    $("#fund-total-display").on("focus", function(e) {
+      originalInputVal = $(this).val();
+    });
     $("#fund-total-display").on("blur", function(e) {
       const $input = $(this);
       var inputVal = $input.val();
-      if (inputVal === "") {
-        inputVal = "500";
+      var formattedVal;
+      if (inputVal !== "" && parseFloat(inputVal) >= 500) {
+        var inputVal = parseFloat(inputVal)
+          .toFixed(2)
+          .toString();
+        formattedVal = inputVal.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        $input.val(formattedVal);
+      } else if (parseFloat(inputVal) < 500) {
+        inputVal = "500.00";
+        formattedVal = inputVal.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        $input.val(formattedVal);
+      } else {
+        $input.val(originalInputVal);
       }
-      var inputVal = parseFloat(inputVal)
-        .toFixed(2)
-        .toString();
-      var formattedVal = inputVal.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
-      $input.val(formattedVal);
     });
 
     $(".numbersonly").on("keydown", function(e) {
