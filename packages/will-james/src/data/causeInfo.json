@@ -70,8 +70,8 @@
           "achieveAmount": 0.34
         },
         "achieve3": {
-          "achieveName": "",
-          "achieveAmount": null
+          "achieveName": "N/A",
+          "achieveAmount": 0
         },
         "postTxt": ""
       }
@@ -89,8 +89,8 @@
           "achieveAmount": 0.2
         },
         "achieve3": {
-          "achieveName": "",
-          "achieveAmount": null
+          "achieveName": "N/A",
+          "achieveAmount": 0
         },
         "postTxt": "As well as addressing the UN's global goals relating to Malaria elimination"
       }
@@ -105,11 +105,11 @@
         },
         "achieve2": {
           "achieveName": "Support after crises",
-          "achieveAmount": null
+          "achieveAmount": 0
         },
         "achieve3": {
           "achieveName": "Advice to get back on track",
-          "achieveAmount": null
+          "achieveAmount": 0
         },
         "postTxt": ""
       }
@@ -124,11 +124,11 @@
         },
         "achieve2": {
           "achieveName": "On site training towards TAFE accreditation in food proessing",
-          "achieveAmount": null
+          "achieveAmount": 0.2
         },
         "achieve3": {
           "achieveName": "One-on-one English tuition and counselling services",
-          "achieveAmount": null
+          "achieveAmount": 0.6
         },
         "postTxt": "As well as support in obtaining full time employment after becoming qualified"
       }
@@ -143,7 +143,7 @@
         },
         "achieve2": {
           "achieveName": "People reached in awareness media campaigns",
-          "achieveAmount": null
+          "achieveAmount": 0.8
         },
         "achieve3": {
           "achieveName": "Health service professionals educated on perinatal anxiety and depression",
