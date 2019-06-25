@@ -3,11 +3,7 @@ import Donation from './components/donations';
 import Cause from './components/cause';
 import Impact from './components/impact';
 
-import './styles/reset.css';
 import 'semantic-ui-css/semantic.min.css';
-import './styles/accessibility.css';
-import './styles/page-size.css';
-import './styles/flex.css';
 import './styles/app.css';
 
 export class App extends Component {
