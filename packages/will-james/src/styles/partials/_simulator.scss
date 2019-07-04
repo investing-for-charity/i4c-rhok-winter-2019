@@ -1,0 +1,129 @@
+.simulator {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  background-color: #cddcdc;
+  background-image: radial-gradient(
+      at 50% 100%,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(0, 0, 0, 0.25) 100%
+    );
+  background-blend-mode: screen, overlay;
+
+  #impact-container {
+    width: 80%;
+    display: grid;
+
+    #impact-intro {
+      display: flex;
+      flex-flow: row;
+      align-items: baseline;
+      justify-content: center;
+      padding-bottom: 1rem;
+      h1,
+      h3 {
+        padding: 0 0.4rem;
+        margin: 0;
+      }
+    }
+    #achieve-impact-group {
+      display: flex;
+      flex-flow: row;
+      width: 100%;
+      justify-content: space-between;
+      border-radius: 3px;
+
+      .impact-group {
+        display: block;
+        width: 30%;
+        border-radius: 3px;
+        align-items: center;
+      }
+    }
+    #post-text {
+      margin: 1.6rem auto;
+    }
+  }
+}
+
+.contribution {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+  padding-top: 2rem;
+  width: 80%;
+  .form-group {
+    display: grid;
+    grid-template-rows: 8rem 4rem;
+    padding: 0;
+    margin: 0 0 2rem;
+    width: 30%;
+
+    .form-input-group {
+      margin: 0;
+      padding: 0.75rem;
+      display: block;
+      text-align: center;
+      font-size: 1.5rem;
+      svg {
+        padding-right: 1rem;
+      }
+      span {
+        font-family: "Roboto Mono", monospace;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+.input-range__label-container {
+  color: #3d3d3d;
+  font-size: 1rem;
+  font-family: "Roboto Mono", monospace;
+  font-weight: normal;
+}
+
+.input-range {
+  margin: auto;
+}
+
+.contribution-results {
+  img {
+    height: 150px;
+  }
+}
+
+#your-contribution {
+  background-color: #ffffff;
+  border-radius: 3px;
+}
+
+#simulator-tooltip {
+  padding-bottom: 2rem;
+}
+
+#select-cause {
+  position: relative;
+  height: 600px;
+  .background {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background-image: url("../assets/Community.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    height: 100%;
+    width: 100%;
+  }
+}

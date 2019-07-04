@@ -1,0 +1,54 @@
+.c-cause {
+  opacity: 0.2;
+  font-size: 1.5em;
+}
+
+.c-cause li {
+  max-width: 40%;
+}
+
+.c-cause button {
+  background-color: black;
+  border: 1px solid white;
+}
+
+.c-cause button:hover,
+.c-cause button:focus,
+.c-cause button:active {
+  box-shadow: 2px 2px 0px 0px rgba(255, 255, 255, 1);
+}
+
+.c-cause ul {
+  padding-top: 2em;
+}
+
+.c-cause li {
+  padding-left: 2em;
+}
+
+.c-cause--focus {
+  opacity: 1;
+}
+
+.c-cause__image {
+  max-width: 100%;
+}
+
+.c-cause__tick {
+  position: absolute;
+  padding-left: 1em;
+}
+
+.c-cause__tick:after {
+  content: "";
+  display: block;
+  width: 0.8em;
+  height: 1.6em;
+  border: solid green;
+  border-width: 0 0.3em 0.3em 0;
+  transform: rotate(45deg);
+}
+
+.c-cause__title {
+  font-size: 0.8em;
+}

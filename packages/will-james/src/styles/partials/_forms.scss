@@ -4,14 +4,13 @@
   align-items: center;
   width: 100%;
   text-align: center;
-  margin-bottom: 2rem;
 }
 
 .form-group {
   display: flex;
   flex-flow: column nowrap;
   padding: 1rem;
-  width: 50%;
+  width: 35%;
 
   #fund-total {
     position: relative;
@@ -22,7 +21,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      padding: 1.05rem 0.75rem;
+      padding: 1.25rem 0.75rem;
       width: 3rem;
       height: 1.5rem;
       text-align: center;
@@ -30,12 +29,26 @@
     }
 
     .form-input {
+      box-sizing: border-box;
       font-size: 1.5rem;
       font-family: "Roboto Mono", monospace;
       text-align: center;
-      border: 1px solid #eee;
+      border: 1px solid #5e5e5e6e;
+      border-radius: 3px;
       width: 100%;
       padding: 0.75rem;
     }
   }
+}
+
+.custom-select {
+  -webkit-appearance: none;
+  font-size: 1.5rem;
+  border: 1px solid #5e5e5e 50%;
+  border-radius: 3px;
+  width: 100%;
+  padding: 1rem;
+  text-align-last: center;
+  text-align: center;
+  cursor: pointer;
 }
