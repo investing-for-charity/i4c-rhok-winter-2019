@@ -1,3 +1,13 @@
+# Deploying
+
+- We are using github pages to deploy the static front end react app
+- This static frontend will communicate with python back end server to get data from Google spreadsheet
+- Run `yarn deploy` to deploy or `npm deploy` (see `package.json`)
+
+----
+
+# Below are default README from create-react-app
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
