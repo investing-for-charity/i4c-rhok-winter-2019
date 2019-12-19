@@ -1,1 +1,1 @@
-Google credentials.json goes into this folder
+Service account JSON credentials file goes into this folder
