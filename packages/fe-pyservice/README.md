@@ -41,6 +41,7 @@ Example:
     * Follow one of the methods in https://devcenter.heroku.com/articles/config-vars
     * Set the environment variable `SERVICE_ACCOUNT_JSON` with the content of service account json file in "Adding Google sheet credentials" step above (as a string)
 1. Push the subfolder: `git subtree push --prefix packages/fe-pyservice heroku master` (run this from the root of the package)
+1. Above step may not work if there are different commits (i.e. will show error like `error: failed to push some refs to 'https://git.heroku.com/rhok-i4c-winter2019-fe-pyserv.git'`, `hint: Updates were rejected because a pushed branch tip is behind its remote`), to fix this you can do force push by doing `git push heroku `git subtree split --prefix packages/fe-pyservice master`:master --force`
 
 ---
 
