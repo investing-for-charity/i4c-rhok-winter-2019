@@ -1,1 +1,1 @@
-Google credentials.json goes here
+Google credentials.json goes into this folder
