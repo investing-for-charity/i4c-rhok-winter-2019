@@ -3,6 +3,15 @@
 A simple service that returns data from a Google sheet in JSON format.
 
 Example: <https://localhost:5000/get/the_persons_email@provider.com>
+```
+POST
+https://localhost:5000/
+Content-type: application/json
+{
+    "email": <email here>,
+    "password": <password here>
+}
+```
 
 # Adding Google sheet credentials
 
