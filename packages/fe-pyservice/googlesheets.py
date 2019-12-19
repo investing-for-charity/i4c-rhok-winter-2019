@@ -12,7 +12,7 @@ SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 DONORS_SHEET = '1x3fRsJh0CH9OMd6k55RgXXEZxAy_1iTdjJwBi6xuD00'
 
 SERVICE_ACCOUNT_JSON_PATH = 'google_credentials/i4c-donor-portal-1576751258592-135a2ba1d216.json'
-SERVICE_ACCOUNT_JSON_VARIABLE_NAME = 'SERVICE_ACCOUNT_PATH'
+SERVICE_ACCOUNT_JSON_VARIABLE_NAME = 'SERVICE_ACCOUNT_JSON'
 
 # Storage for creds
 GOOGLE_CREDS = None
