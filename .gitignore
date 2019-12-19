@@ -29,3 +29,10 @@ build/
 # PyCharm stuff
 __pycache__/
 .idea/
+.venv
+
+
+# credentials
+
+packages/fe-pyservice/google_credentials
+!packages/fe-pyservice/google_credentials/README.md

@@ -1,42 +1,43 @@
 from googleapiclient.discovery import build
-from google_auth_oauthlib.flow import InstalledAppFlow
-from google.auth.transport.requests import Request
-import pandas as pd
-import pickle
-import os
 
-# If modifying these scopes, delete the file token.pickle.
+from google.oauth2 import service_account
+
+import pandas as pd
+import os
+import json
+
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 
 # The ID and range of a sample spreadsheet.
 DONORS_SHEET = '1x3fRsJh0CH9OMd6k55RgXXEZxAy_1iTdjJwBi6xuD00'
 
-CREDENTIALS_PATH = 'google_credentials/credentials.json'
-TOEKN_PATH = 'google_credentials/token.pkl'
+SERVICE_ACCOUNT_JSON_PATH = 'google_credentials/i4c-donor-portal-1576751258592-135a2ba1d216.json'
+SERVICE_ACCOUNT_JSON_VARIABLE_NAME = 'SERVICE_ACCOUNT_PATH'
 
 # Storage for creds
 GOOGLE_CREDS = None
 
 
 def get_creds():
-    creds = None
-    # The file token.pickle stores the user's access and refresh tokens, and is
-    # created automatically when the authorization flow completes for the first
-    # time.
-    if os.path.exists(TOEKN_PATH):
-        with open(TOEKN_PATH, 'rb') as token:
-            creds = pickle.load(token)
-    # If there are no (valid) credentials available, let the user log in.
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(
-                CREDENTIALS_PATH, SCOPES)
-            creds = flow.run_local_server()
-        # Save the credentials for the next run
-        with open(TOEKN_PATH, 'wb') as token:
-            pickle.dump(creds, token)
+    service_account_info = None
+
+    # Use environment variable if exists
+    if SERVICE_ACCOUNT_JSON_VARIABLE_NAME in os.environ:
+        service_account_info = json.loads(
+            os.environ[SERVICE_ACCOUNT_JSON_VARIABLE_NAME])
+
+    # otherwise use file
+    if os.path.exists(SERVICE_ACCOUNT_JSON_PATH):
+        with open(SERVICE_ACCOUNT_JSON_PATH) as file:
+            content = file.read()
+            service_account_info = json.loads(content)
+
+    # if none of the credentials are found, throw an error
+    if service_account_info is None:
+        raise Exception('Error: No credentials found from environment variable or file to access google spreadsheet')
+
+    creds = service_account.Credentials.from_service_account_info(
+        service_account_info, scopes=SCOPES)
 
     return creds
 
@@ -70,7 +71,8 @@ def _to_float(x):
 
 def get_all_donors_summary():
     sheet = get_sheet_content("'All Donors Summary'")
-    sheet['Sum Donation Amount'] = sheet['Sum Donation Amount'].apply(_to_float)
+    sheet['Sum Donation Amount'] = sheet['Sum Donation Amount'].apply(
+        _to_float)
     sheet['Actual Disbursment'] = sheet['Actual Disbursment'].apply(_to_float)
     return sheet
 
