@@ -1,12 +1,12 @@
 /** @jsx jsx */
-import { css, jsx } from '@emotion/core';
-import { SuccessProgressBar } from '@atlaskit/progress-bar';
-import { DashboardData } from '../../api/types';
-import { cardCss } from '../Card';
-import { Button } from '@atlaskit/button/components/Button';
-import PieChart from './PieChart';
-import DonateMore from './DonateMore';
-import { fmtNum } from './utils';
+import { css, jsx } from "@emotion/core";
+import { SuccessProgressBar } from "@atlaskit/progress-bar";
+import { DashboardData } from "../../api/types";
+import { cardCss } from "../Card";
+import { Button } from "@atlaskit/button/components/Button";
+import PieChart from "./PieChart";
+import DonateMore from "./DonateMore";
+import { fmtNum } from "./utils";
 
 type Props = {
   dashboardData: DashboardData;
@@ -37,7 +37,13 @@ const sectionCss = css`
 `;
 
 export default ({ dashboardData, onLogOut }: Props) => {
-  const { first_name, donation_sum, annual_distribution_percent, charities, fund_value } = dashboardData;
+  const {
+    first_name,
+    donation_sum,
+    annual_distribution_percent,
+    charities,
+    fund_value
+  } = dashboardData;
   return (
     <div
       css={css`
@@ -74,7 +80,9 @@ export default ({ dashboardData, onLogOut }: Props) => {
       </section>
 
       <section css={sectionCss}>
-        <h1 css={headingCss}>This year you will distribute {fmtNum(annual_distribution_percent)} %</h1>
+        <h1 css={headingCss}>
+          This year you will distribute {fmtNum(annual_distribution_percent)} %
+        </h1>
         <div
           css={css`
             margin: 16px 0;
@@ -86,7 +94,9 @@ export default ({ dashboardData, onLogOut }: Props) => {
         >
           <SuccessProgressBar value={annual_distribution_percent / 100} />
         </div>
-        <div css={moneyCss}>${fmtNum((annual_distribution_percent / 100) * fund_value)}</div>
+        <div css={moneyCss}>
+          ${fmtNum((annual_distribution_percent / 100) * fund_value)}
+        </div>
       </section>
       <section css={sectionCss}>
         <h1 css={headingCss}>Charity allocation percentage</h1>
@@ -96,6 +106,16 @@ export default ({ dashboardData, onLogOut }: Props) => {
         <h1 css={headingCss}>Donations received from you:</h1>
         <div css={moneyCss}>${fmtNum(donation_sum)}</div>
         <DonateMore />
+      </section>
+      <section css={sectionCss}>
+        <h1 css={headingCss}>Update your preferences:</h1>
+        <a
+          href="https://drive.google.com/open?id=1NI2mssEse1ZaUBxxlq2h23cFCCtlscX6DU7tJwupLl8"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Click here to update your preferences
+        </a>
       </section>
       <div
         css={css`
