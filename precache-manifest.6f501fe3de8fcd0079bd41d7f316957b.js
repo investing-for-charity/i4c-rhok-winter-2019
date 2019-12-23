@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8771badb30a80c2858c782636fa9dc07",
+    "revision": "65f64f5e7fd69a022c81b11b2d7a2a6a",
     "url": "/i4c-rhok-winter-2019/index.html"
   },
   {
-    "revision": "768005f86640fb67b56b",
+    "revision": "1ad68ac1948db68f2842",
     "url": "/i4c-rhok-winter-2019/static/css/main.d644875d.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/i4c-rhok-winter-2019/static/js/2.16e2f9dc.chunk.js"
   },
   {
-    "revision": "768005f86640fb67b56b",
-    "url": "/i4c-rhok-winter-2019/static/js/main.89cbbf4f.chunk.js"
+    "revision": "1ad68ac1948db68f2842",
+    "url": "/i4c-rhok-winter-2019/static/js/main.054e3a1a.chunk.js"
   },
   {
     "revision": "ff2315751c89f00e9a38",
