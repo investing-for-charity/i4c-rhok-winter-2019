@@ -28,7 +28,7 @@ export default () => {
 
   const onLoginSubmit = useCallback(
     (async (formData, _, callback) => {
-      const { data } = await getDashboardData(formData.email, formData.password);
+      const { data } = await getDashboardData(formData.email);
       callback();
 
       dispatch({

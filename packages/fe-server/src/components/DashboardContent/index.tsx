@@ -41,7 +41,6 @@ export default ({ dashboardData, onLogOut }: Props) => {
     first_name,
     donation_sum,
     annual_distribution_percent,
-    charities,
     fund_value
   } = dashboardData;
   return (

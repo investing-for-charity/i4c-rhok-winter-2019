@@ -77,7 +77,7 @@ def get_all_donors_summary():
     return sheet
 
 
-def get_donors_password():
+def get_donors_email_password():
     sheet = get_sheet_content("'DonorPW'")
     return sheet
 

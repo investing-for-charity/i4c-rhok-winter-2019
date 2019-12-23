@@ -7,7 +7,7 @@ import { cardCss } from '../Card';
 import { useCallback, Fragment } from 'react';
 
 type Props = {
-  onSubmit: (formData: { email: string; password: string }, _form: any, callback: (errors?: Object) => void) => void;
+  onSubmit: (formData: { email: string; }, _form: any, callback: (errors?: Object) => void) => void;
 };
 
 export default ({ onSubmit }: Props) => {
@@ -35,9 +35,6 @@ export default ({ onSubmit }: Props) => {
                   {error && <ErrorMessage>Please enter a valid email address</ErrorMessage>}
                 </Fragment>
               )}
-            </Field>
-            <Field name="password" type="password" defaultValue="" label="Password" isRequired>
-              {({ fieldProps }) => <TextField type="password" {...fieldProps} />}
             </Field>
             <FormFooter>
               <div
