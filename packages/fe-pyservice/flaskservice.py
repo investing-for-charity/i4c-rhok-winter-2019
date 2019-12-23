@@ -18,19 +18,18 @@ def hello_world():
 def show_user_profile():
     json_request = request.get_json(force=True)
     email_address = json_request.get('email')
-    password = json_request.get('password')
 
     # show the user profile for that user
     all_donors = gs.get_all_donors_summary()
     charities = gs.get_charity_disbursement_summary()
     eofy_fund = gs.get_latest_eofy_fund_balance()
-    password_list = gs.get_donors_password()
+    password_list = gs.get_donors_email_password()
 
     # check passwords
     password = password_list[
-        (password_list.Email.str.lower() == email_address.lower()) & (password_list.Password == password)]
+        password_list.Email.str.lower() == email_address.lower()]
     if password.shape[0] == 0:
-        return jsonify({'error': 'invalid username or password'})
+        return jsonify({'error': 'invalid email'})
 
     # get person details
     person = all_donors[all_donors.Email.str.lower() == email_address.lower()]
